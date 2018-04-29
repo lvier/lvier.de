@@ -1,0 +1,59 @@
+#
+# Files not to be tracked by version control.
+#
+# This file contains globs, to match files that git shall not be put under
+# version control, because they are either not part of Aldo, or are runtime
+# artifacts, like logs and caches.
+#
+
+# Optional npm cache directory.
+#
+.npm
+
+# NPM module directory.
+#
+node_modules
+
+#####################
+# Unimportant Files #
+#####################
+
+# Temporary files.
+#
+*~
+
+# Backup files.
+#
+*.bak
+
+# Old files.
+#
+*.old
+
+########
+# Logs #
+########
+
+# Log directory.
+#
+logs
+
+# Generic log files.
+#
+*.log
+
+# NPM debug logs.
+#
+npm-debug.log*
+
+#####################
+# Local Environment #
+#####################
+
+# Build scripts.
+#
+*.sh
+
+# WebStorm project files.
+#
+.idea
