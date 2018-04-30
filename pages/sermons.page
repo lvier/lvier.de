@@ -1,0 +1,8 @@
+<div id='sermons'>
+    {.if title}
+        <h1>{title}</h1>
+    {.end}
+    {.if description}
+        <p>{description}</p>
+    {.end}
+</div>
