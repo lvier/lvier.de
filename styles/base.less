@@ -338,7 +338,7 @@ blockquote {
       color: @subNavActiveColor;
     }
   }
-  li.active-link:not(.all) {
+  li > div.active-link:not(.all) {
     a,
     a:visited {
       color: @subNavActiveColor;
@@ -347,7 +347,7 @@ blockquote {
 }
 
 // keeps ALL from being active color on item view
-.view-list #categoryNav ul li.active-link.all {
+.view-list #categoryNav ul li > div.active-link.all {
   a,
   a:visited {
     color: @subNavActiveColor;
@@ -527,8 +527,7 @@ body:not(.has-banner-image),
   margin: auto;
 }
 
-#folderNav,
-#categoryNav,
+#leftSidebar,
 #rightSidebar {
   .border-box;
   width: 26.5625%;
@@ -537,8 +536,7 @@ body:not(.has-banner-image),
   vertical-align: top;
 }
 
-#folderNav,
-#categoryNav {
+#leftSidebar {
   padding-right: (@sitePadding * 2);
 }
 
@@ -565,8 +563,7 @@ li.filter {
 }
 .collection-type-page:not(.hide-page-sidebar),
 .collection-type-products:not(.hide-products-sidebar){
-  #folderNav + #content,
-  #categoryNav + #content {
+  #leftSidebar + #content {
     width: 73.4375%;
     width: ~"calc(100% - 255px)";
     display: inline-block;
@@ -640,17 +637,11 @@ li.filter {
   line-height: 1em;
 }
 
-.hide-page-sidebar {
-  #folderNav { display: none; }
-  #folderNav + #content {
-    display: block;
+.hide-left-sidebar {
+  #leftSidebar {
+    display: none;
   }
-}
-// this one works opposite of the other templates (hide vs. show)
-// and is now labeled "Hide Product Category Nav"
-.hide-products-sidebar {
-  #categoryNav { display: none; }
-  #categoryNav + #content {
+  #leftSidebar + #content {
     display: block;
   }
 }
@@ -1997,5 +1988,6 @@ html.touch {
   }
 }
 
-
-
+.inline {
+  display: inline-block;
+}

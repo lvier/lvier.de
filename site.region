@@ -62,8 +62,7 @@
                         {.end}
                     {.end}
                 {.end}
-            {.end}
-        '>
+            {.end}'>
 
 <a href='#' class='body-overlay'></a>
 <div class='sqs-announcement-bar-dropzone'></div>
@@ -232,7 +231,12 @@
                                                 <!-- SLIDE -->
                                                 {.repeated section @}
                                                 <div
-                                                        class='post{.main-image?}{.or} no-main-image{.end} content-fill'
+                                                        class='
+                                                            post
+                                                            {.main-image?}{.or}
+                                                                no-main-image
+                                                            {.end}
+                                                            content-fill'
                                                         data-slide-id='{id}'>
                                                     <div class='title-desc-wrapper'>
                                                         <time
@@ -394,9 +398,9 @@
     {.end}
     <main id='page' role='main'>
         {.section collection}<!--
-        --><div><!--
+        --><div id='leftSidebar' class='inline'><!--
             -->{.collectionTypeNameEquals? products}<!--
-            --><div><!--
+            --><div class='inline'><!--
                 -->{.section categories}<!--
                 --><div id='categoryNav'><!--
                     --><div class='category-nav-toggle'></div><!--
@@ -442,7 +446,7 @@
             -->{squarespace.main-content}<!--
         --></div><!--
         -->{.section collection}<!--
-        --><div><!--
+        --><div class='inline'><!--
             -->{.collectionTypeNameEquals? blog}<!--
             --><aside id='rightSidebar' role='complementary'><!--
                 --><squarespace:block-field
