@@ -519,6 +519,7 @@
 </body>
 
 <squarespace:script src='site-bundle.js' combo='false' />
+<squarespace:script src='script.js' combo='true' />
 {squarespace-footers}
 
 </html>
