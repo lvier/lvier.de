@@ -22,6 +22,10 @@
         id='{squarespace.page-id}'
         class='
             {squarespace.page-classes}
+            banner-button-style-solid
+            banner-button-corner-style-pill
+            banner-slideshow-controls-arrows
+            meta-priority-date
             {.if item}
                 {.section item}
                     {.if productType}{.or}
@@ -79,14 +83,9 @@
             role='banner'>
         <div class='header-inner'>
             {.section website}
-            <div
-                    id='{.if logoImageUrl}logoWrapper{.or}siteTitleWrapper{.end}'
-                    class='wrapper'
-                    data-content-field='site-title'>
+            <div id='logoWrapper' class='wrapper' data-content-field='site-title'>
                 {.section logoImageUrl}
                 <h1 id='logoImage'><a href='/'><img src='{logoImageUrl}?format=1500w' alt='{siteTitle}' /></a></h1>
-                {.or}
-                <h1 id='siteTitle' class='site-title'><a href='/'>{siteTitle}</a></h1>
                 {.end}
             </div>
             {.end}<!--

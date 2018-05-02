@@ -381,10 +381,6 @@ blockquote {
   a {
     text-decoration: none;
   }
-  #siteTitle {
-    position: relative;
-    z-index: 1000;
-  }
 }
 
 .header-inner,
@@ -415,21 +411,6 @@ blockquote {
   padding: 0 @sitePadding;
 }
 body:not(.sqs-edit-mode) .pre-footer-inner .sqs-layout.empty {max-height: 0;}
-
-.transparent-header #header {
-  background-color: transparent;
-  .font-smoothing(@overlayColor);
-  position: absolute;
-}
-
-body:not(.has-banner-image),
-.collection-type-gallery.has-banner-image {
-  &.transparent-header #header {
-    background-color: fade(@headerBgColor, 100%);
-    .font-smoothing(@headerBgColor);
-    position: relative;
-  }
-}
 
 #preFooter {
   background-color: @preFooterBgColor;
@@ -577,7 +558,6 @@ li.filter {
     width: 100%;
 
     #logoWrapper,
-    #siteTitleWrapper,
     #headerNav {
       .border-box;
       display: table-cell;
@@ -597,14 +577,9 @@ li.filter {
     #logoImage {
       width: @logoContainerWidth;
     }
-    #siteTitleWrapper,
-    #siteTitle {
-      width: @siteTitleContainerWidth;
-    }
 
     &.tweaking{
       #logoWrapper,
-      #siteTitleWrapper,
       #mainNavWrapper {
         border:1px solid #14aaff;
       }
@@ -627,30 +602,10 @@ li.filter {
   }
 }
 
-#siteTitle,
-#siteTitle a {
-  .site-title-font;
-  color: @siteTitleColor;
-  margin: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-  line-height: 1em;
-}
-
-.hide-left-sidebar {
-  #leftSidebar {
-    display: none;
-  }
-  #leftSidebar + #content {
-    display: block;
-  }
-}
-.hide-sidebar-title{
-  .category-nav,
-  .folder-nav{
-    .nav-section-label{
-      display:none;
-    }
+.category-nav,
+.folder-nav{
+  .nav-section-label{
+    display:none;
   }
 }
 
@@ -693,30 +648,6 @@ li.filter {
           width: 100%;
           height: @galleryHeight !important;
           max-width: 100%;
-        }
-      }
-    }
-    &.transparent-header {
-      #promotedGalleryWrapper,
-      .promoted-gallery-wrapper {
-        .sqs-gallery-block-slideshow {
-          height:@galleryHeight + 100px !important;
-          .sqs-gallery{
-            height:@galleryHeight + 100px !important;
-          }
-        }
-      }
-    }
-    &.collection-type-index.transparent-header{
-      .index-section:not(:first-of-type){
-        #promotedGalleryWrapper,
-        .promoted-gallery-wrapper {
-          .sqs-gallery-block-slideshow {
-            height:@galleryHeight !important;
-            .sqs-gallery{
-              height:@galleryHeight !important;
-            }
-          }
         }
       }
     }
@@ -897,24 +828,6 @@ li.filter {
   }
 }
 
-.transparent-header {
-  &.has-promoted-gallery #promotedGalleryWrapper .sqs-gallery-block-slideshow .meta,
-  &.has-promoted-gallery .promoted-gallery-wrapper .sqs-gallery-block-slideshow .meta {
-    padding-top:25px;
-  }
-}
-.collection-type-index.transparent-header{
-  &.has-promoted-gallery{
-    .index-section:not(:first-of-type){
-      #promotedGalleryWrapper .sqs-gallery-block-slideshow .meta,
-      .promoted-gallery-wrapper .sqs-gallery-block-slideshow .meta {
-        padding-top:0;
-      }
-    }
-  }
-}
-
-
 // promoted gallery
 .has-promoted-gallery #promotedGalleryWrapper .sqs-gallery-block-slideshow,
 .has-promoted-gallery .promoted-gallery-wrapper .sqs-gallery-block-slideshow {
@@ -969,22 +882,6 @@ li.filter {
   min-height: 0;
   padding: 130px 0;
 }
-.transparent-header {
-  &.view-list .banner-thumbnail-wrapper,
-  &.collection-type-page .banner-thumbnail-wrapper {
-    padding: 180px 0 155px;
-  }
-}
-.collection-type-index.transparent-header{
-  &.view-list, &.collection-type-page{
-    .index-section:not(:first-of-type){
-      .banner-thumbnail-wrapper {
-        padding: 130px 0;
-      }
-    }
-  }
-}
-
 
 #thumbnail {
   position: absolute;
@@ -1616,13 +1513,6 @@ body:not(.collection-type-gallery).banner-button-corner-style-pill {
     }
   }
 
-  &.enable-nav-button #sidecarNav nav > div:not(.folder):last-child a {
-    display: inline-block;
-    margin: 1em 0 0 0;
-    line-height: 1;
-    padding: 1em 1.5em;
-  }
-
   .folder-toggle.active ~ .subnav {
     padding: 0.25em 0 0.5em;
   }
@@ -1630,72 +1520,6 @@ body:not(.collection-type-gallery).banner-button-corner-style-pill {
 
 .mobile-nav-toggle {
   display: none;
-}
-
-
-// Mobile menu button
-
-.enable-nav-button #headerNav,
-.enable-nav-button #sidecarNav {
-  nav > div:not(.folder):last-child a {
-    .nav-button-font;
-    margin-left:1em;
-    padding: 1em 1.5em !important;
-    display: block;
-    background-color: @navButtonColor;
-    .font-smoothing(@navButtonColor);
-    color: @navButtonTextColor;
-    .transition2(background-color 0.1s 0.0s ease-in-out, color 0.1s 0.0s ease-in-out);
-    &:hover {
-      background-color: fade(@navButtonColor, 80%);
-    }
-  }
-}
-
-.nav-button-style-outline.enable-nav-button #headerNav,
-.nav-button-style-outline.enable-nav-button #sidecarNav {
-  nav > div:not(.folder):last-child a {
-    background-color: transparent;
-    .font-smoothing(@headerBgColor);
-    border: 2px solid @navButtonColor;
-    color: @navButtonColor;
-    &:hover {
-      background-color: @navButtonColor;
-      .nav-button-outline-hover-style-guarded-mixin(@navButtonColor);
-    }
-
-    /* ----- Guarded mixin to calculate what text color should be on hover ----- */
-    .nav-button-outline-hover-style-guarded-mixin (@a) when (lightness(@a) >= 40%) { color: #181818; }
-    .nav-button-outline-hover-style-guarded-mixin (@a) when (lightness(@a) < 60%) { color: #efefef; }
-  }
-}
-
-.nav-button-style-raised.enable-nav-button #headerNav,
-.nav-button-style-raised.enable-nav-button #sidecarNav {
-  nav > div:not(.folder):last-child a {
-    -webkit-box-shadow: 0px 0.2em 0px 0px darken(@navButtonColor,8%);
-    -moz-box-shadow: 0px 0.2em 0px 0px darken(@navButtonColor,8%);
-    box-shadow: 0px 0.2em 0px 0px darken(@navButtonColor,8%);
-    &:hover {
-      background-color: lighten(@navButtonColor,3%);
-    }
-  }
-}
-
-.nav-button-corner-style-rounded.enable-nav-button #headerNav,
-.nav-button-corner-style-rounded.enable-nav-button #sidecarNav {
-  nav > div:not(.folder):last-child a {
-    -webkit-border-radius: 3px;
-            border-radius: 3px;
-  }
-}
-
-.nav-button-corner-style-pill.enable-nav-button #headerNav,
-.nav-button-corner-style-pill.enable-nav-button #sidecarNav {
-  nav > div:not(.folder):last-child a {
-    -webkit-border-radius: 300px;
-            border-radius: 300px;
-  }
 }
 
 .back-to-top-nav { display: none; }
@@ -1734,23 +1558,6 @@ body:not(.collection-type-gallery).banner-button-corner-style-pill {
 .site-phone + .site-email{
   margin-left:1em;
 }
-
-.center-navigation--info {
-  #secondaryNavWrapper {
-    text-align: center;
-    left: auto;
-  }
-  #siteInfo {
-    text-align: center;
-  }
-}
-
-.hide-site-info {
-  #siteInfo {
-    display: none;
-  }
-}
-
 
 #footerBlocks:not(.empty){
   margin-top:1.5em;
