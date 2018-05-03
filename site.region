@@ -130,9 +130,9 @@
                                 <time
                                         class='dt-published published post-date'
                                         datetime='{addedOn|date %F}'
-                                        pubdate>
-                                    {addedOn|date %B %e, %Y}
-                                </time>
+                                        pubdate><!--
+                                    -->{addedOn|date %B %e, %Y}<!--
+                                --></time>
                                 <div class='post-category'>
                                     {.section categories}
                                     <span><!--
@@ -237,9 +237,9 @@
                                                 <time
                                                         class='dt-published published post-date'
                                                         datetime='{addedOn|date %F}'
-                                                        pubdate>
-                                                    {addedOn|date %B %e, %Y}
-                                                </time>
+                                                        pubdate><!--
+                                                    -->{addedOn|date %B %e, %Y}<!--
+                                                --></time>
                                                 <div class='post-category'>
                                                     {.repeated section categories}{@}{.alternates with}, {.end}
                                                 </div>
