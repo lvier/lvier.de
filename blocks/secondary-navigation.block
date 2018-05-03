@@ -1,8 +1,8 @@
 {.section items}
 <div id="secondaryNavWrapper" class="nav-wrapper" data-content-field="navigation-secondaryNav">
     <nav id="secondaryNavigation" data-content-field="navigation-secondaryNav">
-        {.repeated section @}
-        <div>
+        {.repeated section @}<!--
+        --><div>
             {.collection?}
             <div>
                 {.index?}
@@ -18,9 +18,7 @@
                                 {.end}
                             {.end}"
                         id="id{collection.id}">
-                    <a href="{collection.fullUrl}">
-                        <span>{collection.navigationTitle}</span>
-                    </a>
+                    <a href="{collection.fullUrl}">{collection.navigationTitle}</a>
                 </div>
                 {.or}
                 <div>
@@ -37,22 +35,20 @@
                                     {.end}
                                 {.end}"
                             id="id{collection.id}">
-                        <div class="folder-toggle" data-href="{collection.fullUrl}">{collection.navigationTitle}</div>
-                        <div class="subnav">
+                        <div class="folder-toggle" data-href="{collection.fullUrl}"><!--
+                            -->{collection.navigationTitle}<!--
+                        --></div><!--
+                        --><div class="subnav">
                             {.repeated section items}
                             <div>
                                 {.collection?}
                                 <div class="collection{.if active} active{.end}" id="id{collection.id}">
-                                    <a href="{collection.fullUrl}">
-                                        <span>{collection.navigationTitle}</span>
-                                    </a>
+                                    <a href="{collection.fullUrl}">{collection.navigationTitle}</a>
                                 </div>
                                 {.end}
                                 {.section externalLink}
                                 <div class="external">
-                                    <a href="{url}"{.section newWindow} target="_blank"{.end}>
-                                        <span>{title}</span>
-                                    </a>
+                                    <a href="{url}"{.section newWindow} target="_blank"{.end}>{title}</a>
                                 </div>
                                 {.end}
                             </div>
@@ -63,9 +59,7 @@
                     <div>
                         {.section collection}
                         <div class="collection{.if active} active{.end}{.if homepage} homepage{.end}" id="id{id}">
-                            <a href="{fullUrl}">
-                                <span>{navigationTitle}</span>
-                            </a>
+                            <a href="{fullUrl}">{navigationTitle}</a>
                         </div>
                         {.end}
                     </div>
@@ -77,15 +71,13 @@
             <div>
                 {.section externalLink}
                 <div class="external">
-                    <a href="{url}"{.section newWindow} target="_blank"{.end}>
-                        <span>{title}</span>
-                    </a>
+                    <a href="{url}" {.section newWindow} target="_blank" {.end}>{title}</a>
                 </div>
                 {.end}
             </div>
             {.end}
-        </div>
-        {.end}
+        </div><!--
+        -->{.end}
     </nav>
 </div>
 {.end}

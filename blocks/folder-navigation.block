@@ -1,5 +1,5 @@
-{.section items}
-<div id='folderNav' data-content-field='navigation-folderNav'>
+{.section items}<!--
+--><div id='folderNav' data-content-field='navigation-folderNav'>
     <div class='folder-nav-toggle'></div>
     <nav class='folder-nav' role='navigation'>
         <ul>
@@ -33,5 +33,5 @@
             {.end}
         </ul>
     </nav>
-</div>
-{.end}
+</div><!--
+-->{.end}

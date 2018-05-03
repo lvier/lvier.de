@@ -3,14 +3,11 @@
     <nav id="mobileNavigation">
         {.if websiteSettings.userAccountsSettings.loginAllowed}
         <div class="user-account-link">
-            <a href="#">
-                <span class="unauth">Sign In</span>
-                <span class="auth">My Account</span>
-            </a>
-        </div>
-        {.end}
-        {.repeated section items}
-        <div>
+            <a href="#"><span class="unauth">Sign In</span><span class="auth">My Account</span></a>
+        </div><!--
+        -->{.end}<!--
+        -->{.repeated section items}<!--
+        --><div>
             {.collection?}
             <div>
                 {.index?}
@@ -31,8 +28,10 @@
                                         homepage
                                     {.end}
                                 {.end}">
-                        <div class="folder-toggle" data-href="{collection.fullUrl}">{collection.navigationTitle}</div>
-                        <div class="subnav">
+                        <div class="folder-toggle" data-href="{collection.fullUrl}"><!--
+                            -->{collection.navigationTitle}<!--
+                        --></div><!--
+                        --><div class="subnav">
                             {.repeated section items}
                             <div>
                                 {.collection?}
@@ -68,11 +67,10 @@
                     <a href="{url}"{.section newWindow} target="_blank"{.end}>{title}</a>
                 </div>
                 {.end}
-            {.end}
             </div>
-        {.end}
-        </div>
+            {.end}
+        </div><!--
+        -->{.end}
     </nav>
 </div>
 {.end}
-

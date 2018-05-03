@@ -88,20 +88,20 @@
                 <h1 id='logoImage'><a href='/'><img src='{logoImageUrl}?format=1500w' alt='{siteTitle}' /></a></h1>
                 {.end}
             </div>
-            {.end}<!--
-            --><div class='mobile-nav-toggle'><!--
-                --><div class='top-bar'></div><!--
-                --><div class='middle-bar'></div><!--
-                --><div class='bottom-bar'></div><!--
-            --></div><!--
-            --><div class='mobile-nav-toggle fixed-nav-toggle'><!--
-                --><div class='top-bar'></div><!--
-                --><div class='middle-bar'></div><!--
-                --><div class='bottom-bar'></div><!--
-            --></div><!--
-            --><div id='headerNav'><!--
-                --><squarespace:navigation navigationId='mainNav' template='navigation' /><!--
-            --></div>
+            {.end}
+            <div class='mobile-nav-toggle'>
+                <div class='top-bar'></div>
+                <div class='middle-bar'></div>
+                <div class='bottom-bar'></div>
+            </div>
+            <div class='mobile-nav-toggle fixed-nav-toggle'>
+                <div class='top-bar'></div>
+                <div class='middle-bar'></div>
+                <div class='bottom-bar'></div>
+            </div>
+            <div id='headerNav'>
+                <squarespace:navigation navigationId='mainNav' template='navigation' />
+            </div>
         </div>
     </header>
     {.if item}
@@ -134,15 +134,15 @@
                                     {addedOn|date %B %e, %Y}
                                 </time>
                                 <div class='post-category'>
-                                    {.section categories}<!--
-                                    --><span><!--
+                                    {.section categories}
+                                    <span><!--
                                         -->{.repeated section @}<!--
                                         --><a href='{collection.fullUrl}?category={@|url-encode}'>{@}</a><!--
                                         -->{.alternates with}<!--
                                         -->, <!--
                                         -->{.end}<!--
-                                    --></span><!--
-                                    -->{.end}
+                                    --></span>
+                                    {.end}
                                 </div>
                                 <div class='post-author'>
                                     <a href='{collection.fullUrl}?author={author.id}'>{author.displayName}</a>
@@ -165,208 +165,192 @@
     <div>
         {.section collection}
         <div>
-            {.collectionTypeNameEquals? gallery}{.or}
+            {.collectionTypeNameEquals? page}
             <div>
-                {.collectionTypeNameEquals? index}{.or}
+                <div id='promotedGalleryWrapper' class='sqs-layout promoted-gallery-wrapper'>
+                    <div class='row'>
+                        <div class='col'></div>
+                    </div>
+                </div>
+                {.background-source-video?}
+                <div
+                        class='banner-thumbnail-wrapper{.if description} has-description{.end}'
+                        data-content-field='main-image'
+                        data-collection-id='{collection.id}'
+                        data-edit-main-image='Banner'
+                        data-annotation-alignment='bottom left'>
+                    <div class='color-overlay'></div>
+                    <figure id='thumbnail' class='loading content-fill'>
+                        {@|apply sqs-video-background.block}
+                    </figure>
+                    {.if description}
+                    <div class='desc-wrapper' data-collection-id='{id}'>{description}</div>
+                    {.end}
+                </div>
+                {.or}
                 <div>
-                    {.collectionTypeNameEquals? page}
-                    <div>
-                        <div id='promotedGalleryWrapper' class='sqs-layout promoted-gallery-wrapper'>
-                            <div class='row'>
-                                <div class='col'></div>
-                            </div>
-                        </div>
-                        {.background-source-video?}
-                        <div
-                                class='banner-thumbnail-wrapper{.if description} has-description{.end}'
-                                data-content-field='main-image'
-                                data-collection-id='{collection.id}'
-                                data-edit-main-image='Banner'
-                                data-annotation-alignment='bottom left'>
+                    {.main-image?}
+                    <div
+                            class='banner-thumbnail-wrapper{.if description} has-description{.end}'
+                            data-content-field='main-image'
+                            data-collection-id='{collection.id}'
+                            data-edit-main-image='Banner'
+                            data-annotation-alignment='bottom left'>
+                        {.section mainImage}
+                        <div>
                             <div class='color-overlay'></div>
-                            <figure id='thumbnail' class='loading content-fill'>
-                                {@|apply sqs-video-background.block}
-                            </figure>
-                            {.if description}
-                            <div class='desc-wrapper' data-collection-id='{id}'>{description}</div>
-                            {.end}
+                            <figure id='thumbnail' class='loading content-fill'><img {@|image-meta} /></figure>
+                        </div>
+                        {.end}
+                        {.if description}
+                        <div class='desc-wrapper' data-collection-id='{id}'>{description}</div>
+                        {.end}
+                    </div>
+                    {.end}
+                </div>
+                {.end}
+            </div>
+            {.or}
+            <div>
+                {.collectionTypeNameEquals? blog}
+                <div>
+                    <squarespace:query collection='{collection.urlId}' featured='true' limit='5'>
+                        {.section items}
+                        <div class='sqs-featured-posts-gallery'>
+                            <div class='gallery-wrapper'>
+
+                                <!-- FULL SIZE IMAGES -->
+                                <div class='slides-controls'>
+                                    <div class='posts'>
+
+                                        <!-- SLIDE -->
+                                        {.repeated section @}
+                                        <div
+                                                class='
+                                                    post
+                                                    {.main-image?}{.or}
+                                                        no-main-image
+                                                    {.end}
+                                                    content-fill'
+                                                data-slide-id='{id}'>
+                                            <div class='title-desc-wrapper'>
+                                                <time
+                                                        class='dt-published published post-date'
+                                                        datetime='{addedOn|date %F}'
+                                                        pubdate>
+                                                    {addedOn|date %B %e, %Y}
+                                                </time>
+                                                <div class='post-category'>
+                                                    {.repeated section categories}{@}{.alternates with}, {.end}
+                                                </div>
+                                                <div class='post-author'>{author.displayName}</div>
+                                                {.section title}
+                                                <div class='post-title'>
+                                                    <a href='{fullUrl}'>{@|truncate 48}</a>
+                                                </div>
+                                                {.end}
+                                                {.excerpt?}
+                                                <div class='post-excerpt'>{excerpt}</div>
+                                                {.end}
+                                                <a href='{fullUrl}' class='view-post'></a>
+                                            </div>
+                                            <div class='color-overlay'></div>
+                                            {.main-image?}
+                                            <img data-load='viewport' {@|image-meta}>
+                                            {.end}
+                                        </div>
+                                        {.end}
+
+                                    </div>
+
+                                    <!-- PREVIOUS/NEXT CONTROLS -->
+                                    {.section 1}
+                                    <div>
+                                        <span class='arrow previous-slide'></span><!--
+                                        --><span class='arrow next-slide'></span>
+                                    </div>
+                                    {.end}
+
+                                    <!-- CIRCLES -->
+                                    <div class='circles gallery-nav'>
+                                        {.repeated section @}<!--
+                                        --><span class='circle'></span><!--
+                                        -->{.end}
+                                    </div>
+
+                                </div>
+
+                            </div>
                         </div>
                         {.or}
                         <div>
-                            {.main-image?}
-                            <div
-                                    class='banner-thumbnail-wrapper{.if description} has-description{.end}'
-                                    data-content-field='main-image'
-                                    data-collection-id='{collection.id}'
-                                    data-edit-main-image='Banner'
-                                    data-annotation-alignment='bottom left'>
-                                {.section mainImage}
-                                <div>
+                            {.section collection}
+                            <div>
+                                {.background-source-video?}
+                                <div
+                                        class='banner-thumbnail-wrapper{.if description} has-description{.end}'
+                                        data-content-field='main-image'>
                                     <div class='color-overlay'></div>
-                                    <figure id='thumbnail' class='loading content-fill'><img {@|image-meta} /></figure>
-                                </div>
-                                {.end}
-                                {.if description}
-                                <div class='desc-wrapper' data-collection-id='{id}'>{description}</div>
-                                {.end}
-                            </div>
-                            {.end}
-                        </div>
-                        {.end}
-                    </div>
-                    {.or}
-                    <div>
-                        {.collectionTypeNameEquals? blog}
-                        <div>
-                            <squarespace:query collection='{collection.urlId}' featured='true' limit='5'>
-                                {.section items}
-                                <div class='sqs-featured-posts-gallery'>
-                                    <div class='gallery-wrapper'>
-
-                                        <!-- FULL SIZE IMAGES -->
-                                        <div class='slides-controls'>
-                                            <div class='posts'>
-
-                                                <!-- SLIDE -->
-                                                {.repeated section @}
-                                                <div
-                                                        class='
-                                                            post
-                                                            {.main-image?}{.or}
-                                                                no-main-image
-                                                            {.end}
-                                                            content-fill'
-                                                        data-slide-id='{id}'>
-                                                    <div class='title-desc-wrapper'>
-                                                        <time
-                                                                class='dt-published published post-date'
-                                                                datetime='{addedOn|date %F}'
-                                                                pubdate>
-                                                            {addedOn|date %B %e, %Y}
-                                                        </time>
-                                                        <div class='post-category'>
-                                                            {.section categories}<!--
-                                                            --><span><!--
-                                                                -->{.repeated section @}<!--
-                                                                --><span>{@}</span><!--
-                                                                -->{.alternates with}<!--
-                                                                --><span>, </span><!--
-                                                                -->{.end}<!--
-                                                            --></span><!--
-                                                            -->{.end}
-                                                        </div>
-                                                        <div class='post-author'>{author.displayName}</div>
-                                                        {.section title}
-                                                        <div class='post-title'>
-                                                            <a href='{fullUrl}'>{@|truncate 48}</a>
-                                                        </div>
-                                                        {.end}
-                                                        {.excerpt?}
-                                                        <div class='post-excerpt'>{excerpt}</div>
-                                                        {.end}
-                                                        <a href='{fullUrl}' class='view-post'></a>
-                                                    </div>
-                                                    <div class='color-overlay'></div>
-                                                    {.main-image?}
-                                                    <img data-load='viewport' {@|image-meta}>
-                                                    {.end}
-                                                </div>
-                                                {.end}
-
-                                            </div>
-
-                                            <!-- PREVIOUS/NEXT CONTROLS -->
-                                            {.section 1}
-                                            <div>
-                                                <span class='arrow previous-slide'></span>
-                                                <span class='arrow next-slide'></span>
-                                            </div>
-                                            {.end}
-
-                                            <!-- CIRCLES -->
-                                            <div class='circles gallery-nav'>
-                                                {.repeated section @}
-                                                <span class='circle'></span>
-                                                {.end}
-                                            </div>
-
-                                        </div>
-
+                                    <figure id='thumbnail' class='loading content-fill'>
+                                        {@|apply sqs-video-background.block}
+                                    </figure>
+                                    {.if description}
+                                    <div class='desc-wrapper' data-content-field='description'>
+                                        {description}
                                     </div>
+                                    {.end}
                                 </div>
                                 {.or}
                                 <div>
-                                    {.section collection}
-                                    <div>
-                                        {.background-source-video?}
+                                        {.section mainImage}
                                         <div
-                                                class='banner-thumbnail-wrapper{.if description} has-description{.end}'
-                                                data-content-field='main-image'>
-                                            <div class='color-overlay'></div>
-                                            <figure id='thumbnail' class='loading content-fill'>
-                                                {@|apply sqs-video-background.block}
-                                            </figure>
-                                            {.if description}
-                                            <div class='desc-wrapper' data-content-field='description'>
-                                                {description}
-                                            </div>
-                                            {.end}
-                                        </div>
-                                        {.or}
-                                        <div>
-                                                {.section mainImage}
-                                                <div
-                                                class='banner-thumbnail-wrapper{.if description} has-description{.end}'
-                                                data-content-field='main-image'>
-                                                <div class='color-overlay'></div>
-                                                <figure id='thumbnail' class='loading content-fill'>
-                                                <img {@|image-meta} />
-                                                </figure>
-                                                {.if description}
-                                                <div class='desc-wrapper' data-content-field='description'>
-                                                    {description}
-                                                </div>
-                                                {.end}
-                                            </div>
-                                            {.end}
+                                        class='banner-thumbnail-wrapper{.if description} has-description{.end}'
+                                        data-content-field='main-image'>
+                                        <div class='color-overlay'></div>
+                                        <figure id='thumbnail' class='loading content-fill'>
+                                            <img {@|image-meta} />
+                                        </figure>
+                                        {.if description}
+                                        <div class='desc-wrapper' data-content-field='description'>
+                                            {description}
                                         </div>
                                         {.end}
                                     </div>
                                     {.end}
                                 </div>
                                 {.end}
-                            </squarespace:query>
+                            </div>
+                            {.end}
                         </div>
-                        {.or}
-                        <div>
-                            {.background-source-video?}
-                            <div
-                                    class='banner-thumbnail-wrapper{.if description} has-description{.end}'
-                                    data-content-field='main-image'>
-                                <div class='color-overlay'></div>
-                                <figure id='thumbnail' class='loading content-fill'>
-                                    {@|apply sqs-video-background.block}
-                                </figure>
-                                {.if description}
-                                <div class='desc-wrapper' data-content-field='description'>{description}</div>
-                                {.end}
-                            </div>
-                            {.or}
-                            <div>
-                                {.section mainImage}
-                                <div
-                                        class='banner-thumbnail-wrapper{.if description} has-description{.end}'
-                                        data-content-field='main-image'>
-                                    <div class='color-overlay'></div>
-                                    <figure id='thumbnail' class='loading content-fill'>
-                                        <img {@|image-meta} />
-                                    </figure>
-                                    {.if description}
-                                    <div class='desc-wrapper' data-content-field='description'>{description}</div>
-                                    {.end}
-                                </div>
-                                {.end}
-                            </div>
+                        {.end}
+                    </squarespace:query>
+                </div>
+                {.or}
+                <div>
+                    {.background-source-video?}
+                    <div
+                            class='banner-thumbnail-wrapper{.if description} has-description{.end}'
+                            data-content-field='main-image'>
+                        <div class='color-overlay'></div>
+                        <figure id='thumbnail' class='loading content-fill'>
+                            {@|apply sqs-video-background.block}
+                        </figure>
+                        {.if description}
+                        <div class='desc-wrapper' data-content-field='description'>{description}</div>
+                        {.end}
+                    </div>
+                    {.or}
+                    <div>
+                        {.section mainImage}
+                        <div
+                                class='banner-thumbnail-wrapper{.if description} has-description{.end}'
+                                data-content-field='main-image'>
+                            <div class='color-overlay'></div>
+                            <figure id='thumbnail' class='loading content-fill'>
+                                <img {@|image-meta} />
+                            </figure>
+                            {.if description}
+                            <div class='desc-wrapper' data-content-field='description'>{description}</div>
                             {.end}
                         </div>
                         {.end}
@@ -396,44 +380,43 @@
     </p>
     {.end}
     <main id='page' role='main'>
-        {.section collection}<!--
-        --><div id='leftSidebar' class='inline'><!--
-            -->{.collectionTypeNameEquals? products}<!--
-            --><div class='inline'><!--
-                -->{.section categories}<!--
-                --><div id='categoryNav'><!--
-                    --><div class='category-nav-toggle'></div><!--
-                    --><nav class='category-nav'><!--
-                        --><ul class='category-nav-links'><!--
-                            --><li class='nav-section-label'>{navigationTitle}</li><!--
-                            --><li class='filter'><a>Filter{.if categoryFilter}: {categoryFilter}{.end}</a></li><!--
-                            --><li
-                                    {.if categoryFilter}{.or}
-                                        class='active-link all'
-                                    {.end}><!--
-                                --><a href='{fullUrl}'>All</a><!--
-                            --></li><!--
-                            -->{.repeated section @}<!--
-                            --><li
-                                    {.equal? categoryFilter @}
-                                        class='active-link'
-                                    {.end}><!--
-                                --><a href='{fullUrl}?category={@|url-encode}'>{@}</a><!--
-                            --></li><!--
-                            -->{.end}<!--
-                        --></ul><!--
-                    --></nav><!--
-                --></div><!--
-                -->{.end}<!--
-            --></div><!--
-            -->{.end}<!--
-            -->{.collectionTypeNameEquals? page}<!--
-            --><squarespace:folder-navigation template='folder-navigation' /><!--
-            -->{.end}<!--
-        --></div><!--
+        {.equal? collection.typeName "gallery"}{.var @isGallery collection.typeName}{.end}
+        {.equal? collection.typeName "index"}{.var @isIndex collection.typeName}{.end}
+        {.equal? collection.typeName "products"}{.var @isProducts collection.typeName}{.end}
+        {.equal? collection.typeName "page"}{.var @isPage collection.typeName}{.end}
+        {.equal? collection.typeName "blog"}{.var @isBlog collection.typeName}{.end}
+        {.if @isProducts}
+        <div id='categoryNav'>
+            <div class='category-nav-toggle'></div>
+            {.section collection.categories}
+            <div id='categoryNav'>
+                <nav class='category-nav'>
+                    <ul class='category-nav-links'>
+                        <li class='nav-section-label'>{navigationTitle}</li>
+                        <li class='filter'><a>Filter{.if categoryFilter}: {categoryFilter}{.end}</a></li>
+                        <li
+                                {.if categoryFilter}{.or}
+                                    class='active-link all'
+                                {.end}>
+                            <a href='{fullUrl}'>All</a>
+                        </li>
+                        {.repeated section @}
+                        <li
+                                {.equal? categoryFilter @}
+                                    class='active-link'
+                                {.end}>
+                            <a href='{fullUrl}?category={@|url-encode}'>{@}</a>
+                        </li>
+                        {.end}
+                    </ul>
+                </nav>
+            </div>
+            {.end}
+        </div><!--
         -->{.end}<!--
-        -->{.equal? collection.typeName "gallery"}{.var @isGallery collection.typeName}{.end}<!--
-        -->{.equal? collection.typeName "index"}{.var @isIndex collection.typeName}{.end}<!--
+        -->{.if @isPage}<!--
+        --><squarespace:folder-navigation template='folder-navigation' /><!--
+        -->{.end}<!--
         --><div
                 id='content'
                 class='main-content'
@@ -441,22 +424,20 @@
                 data-collection-id='{collection.id}'
                 {.if @isGallery || @isIndex}{.or}
                     data-edit-main-image='Banner'
-                {.end}><!--
-            -->{squarespace.main-content}<!--
-        --></div><!--
-        -->{.section collection}<!--
-        --><div class='inline'><!--
-            -->{.collectionTypeNameEquals? blog}<!--
-            --><aside id='rightSidebar' role='complementary'><!--
-                --><squarespace:block-field
-                        class='open-block-field'
-                        id='blogBlocks-{id}'
-                        columns='12'
-                        label='Blog Sidebar Content' /><!--
-            --></aside><!--
-            -->{.end}<!--
-        --></div><!--
-        -->{.end}
+                {.end}>
+            {squarespace.main-content}
+        </div><!--
+        -->{.if @isBlog}<!--
+        --><aside id='rightSidebar' role='complementary'>
+            {.section collection}
+            <squarespace:block-field
+                    class='open-block-field'
+                    id='blogBlocks-{id}'
+                    columns='12'
+                    label='Blog Sidebar Content' />
+            {.end}
+        </aside>
+        {.end}
     </main>
     <div id='preFooter'>
         <div class='pre-footer-inner'>
@@ -465,54 +446,24 @@
     </div>
     <footer id='footer' role='contentinfo'>
         <div class='footer-inner'>
-            <div class='nav-wrapper back-to-top-nav'><!--
-                --><nav><!--
-                    --><div class='back-to-top'><!--
-                        --><a href='#header'>Back to Top</a><!--
-                    --></div><!--
-                --></nav><!--
-            --></div>
+            <div class='nav-wrapper back-to-top-nav'>
+                <nav>
+                    <div class='back-to-top'>
+                        <a href='#header'>Back to Top</a>
+                    </div>
+                </nav>
+            </div>
             <squarespace:navigation navigationId='secondaryNav' template='secondary-navigation' />
             <div id='siteInfo'>
-                {.section website.location}<!--
-                --><span><!--
-                    -->{.if addressTitle || addressLine1 || addressLine2 || addressCountry}<!--
-                    --><span class='site-address'><!--
-                        -->{.if addressTitle}{addressTitle}{.end}<!--
-                        -->{.if addressLine1}<!--
-                        --><span><!--
-                            -->{.if addressTitle}, {.end}<!--
-                            -->{addressLine1}<!--
-                        --></span><!--
-                        -->{.end}<!--
-                        -->{.if addressLine2}<!--
-                        --><span><!--
-                            -->{.if addressTitle || addressLine1}, {.or}{.end}<!--
-                            -->{addressLine2}<!--
-                        --></span><!--
-                        -->{.end}<!--
-                        -->{.if addressCountry}<!--
-                        --><span><!--
-                            -->{.if addressTitle || addressLine1 || addressLine2}, {.end}<!--
-                            -->{addressCountry}<!--
-                        --></span><!--
-                        -->{.end}<!--
-                    --></span><!--
-                    -->{.end}<!--
+                {.section website.location}
+                <span class='site-address'><!--
+                    -->{.if addressTitle}{addressTitle}, {.end}<!--
+                    -->{addressLine1}, {addressLine2}<!--
+                    -->{.if addressCountry}, {addressCountry}{.end}<!--
                 --></span><!--
                 -->{.end}<!--
-                -->{.section websiteSettings}<!--
-                --><span><!--
-                    -->{.if contactPhoneNumber}<!--
-                    --><span rel='tel' class='site-phone'>{contactPhoneNumber}</span><!--
-                    -->{.end}<!--
-                    -->{.if contactEmail}<!--
-                    --><a href='mailto:{contactEmail}' class='site-email'><!--
-                        --><span>{contactEmail}</span><!--
-                    --></a><!--
-                    -->{.end}<!--
-                --></span><!--
-                -->{.end}
+                --><span rel='tel' class='site-phone'>{websiteSettings.contactPhoneNumber}</span><!--
+                --><a href='mailto:{contactEmail}' class='site-email'>{websiteSettings.contactEmail}</a>
             </div>
             <squarespace:block-field id='footerBlocks' columns='12' label='Footer Content' />
         </div>
