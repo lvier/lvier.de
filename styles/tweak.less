@@ -4,12 +4,14 @@
  */
 
 @headerBgColor: #fff;
-
 @logoContainerWidth: 500px;
 
 /*
  * Navigation
  */
+
+@navColor: #aaa;
+@navActiveColor: rgba(61,153,145,1);
 
 .nav-font {
   font-family: futura-pt, sans-serif;
@@ -21,15 +23,15 @@
   text-decoration: none;
 }
 
-@navColor: #aaa;
-
-@navActiveColor: rgba(61,153,145,1);
-
 /*
  * Banner
  */
 
+@bannerHeadingColor: rgba(255,255,255,1);
 @overlayColor: rgba(0, 0, 0, 0.3);
+@bannerTextColor: rgba(255,255,255,1);
+@bannerButtonColor: rgba(54,179,168,1);
+@bannerButtonTextColor: rgba(255,255,255,1);
 
 .banner-heading-font {
   font-family: futura-pt, sans-serif;
@@ -41,8 +43,6 @@
   line-height: 1em;
 }
 
-@bannerHeadingColor: rgba(255,255,255,1);
-
 .banner-text-font {
   font-family: adobe-garamond-pro, serif;
   font-weight: 400;
@@ -52,12 +52,6 @@
   text-transform: none;
   line-height: 1.5em;
 }
-
-@bannerTextColor: rgba(255,255,255,1);
-
-@bannerButtonColor: rgba(54,179,168,1);
-
-@bannerButtonTextColor: rgba(255,255,255,1);
 
 .banner-button-font {
   font-family: futura-pt, sans-serif;
@@ -74,6 +68,13 @@
  */
 
 @pageBgColor: rgba(255,255,255,1);
+@pageTextColor: rgba(26,26,26,0.7);
+@pageLinkColor: rgba(61,153,145,1);
+@pageMetaColor: rgba(26,26,26,0.4);
+@heading1Color: rgba(26,26,26,0.9);
+@heading2Color: rgba(74,74,74,1);
+@heading3Color: rgba(26,26,26,0.9);
+@quoteColor: #aaa;
 
 .body-font {
   font-family: adobe-garamond-pro, serif;
@@ -83,12 +84,6 @@
   letter-spacing: 0px;
   line-height: 1.6em;
 }
-
-@pageTextColor: rgba(26,26,26,0.7);
-
-@pageLinkColor: rgba(61,153,145,1);
-
-@pageMetaColor: rgba(26,26,26,0.4);
 
 .heading1-font {
   font-family: futura-pt, sans-serif;
@@ -100,8 +95,6 @@
   line-height: 1.2em;
 }
 
-@heading1Color: rgba(26,26,26,0.9);
-
 .heading2-font {
   font-family: futura-pt, sans-serif;
   font-weight: 400;
@@ -111,8 +104,6 @@
   text-transform: uppercase;
   line-height: 1.2em;
 }
-
-@heading2Color: rgba(74,74,74,1);
 
 .heading3-font {
   font-family: futura-pt, sans-serif;
@@ -124,8 +115,6 @@
   line-height: 1.2em;
 }
 
-@heading3Color: rgba(26,26,26,0.9);
-
 .quote-font {
   font-family: adobe-garamond-pro, serif;
   font-weight: 400;
@@ -135,11 +124,11 @@
   line-height: 1.65em;
 }
 
-@quoteColor: #AAA;
-
 /*
  * Summary Block
  */
+
+@summaryHeadingColor: #666;
 
 .summary-heading-font {
   font-family: futura-pt, sans-serif;
@@ -149,11 +138,13 @@
   text-transform: uppercase;
 }
 
-@summaryHeadingColor: #666;
-
 /*
  * Sidebar
  */
+
+@subNavTitleColor: rgba(61,153,145,1);
+@subNavLinkColor: rgba(26,26,26,0.4);
+@subNavActiveColor: rgba(61,153,145,1);
 
 .subnav-title-font {
   font-family: adobe-garamond-pro, serif;
@@ -165,8 +156,6 @@
   text-decoration: none;
 }
 
-@subNavTitleColor: rgba(61,153,145,1);
-
 .subnav-link-font {
   font-family: futura-pt, sans-serif;
   font-weight: 600;
@@ -177,16 +166,11 @@
   text-decoration: none;
 }
 
-@subNavLinkColor: rgba(26,26,26,0.4);
-
-@subNavActiveColor: rgba(61,153,145,1);
-
 /*
  * PreFooter
  */
 
 @preFooterBgColor: rgb(255,255,255);
-
 @preFooterTextColor: rgb(31,31,31);
 
 /*
@@ -194,8 +178,10 @@
  */
 
 @footerBgColor: #f7f7f7;
-
 @footerTextColor: #000000;
+@footerNavLinkColor: #000000;
+@footerNavActiveColor: #000000;
+@siteInfoColor: #000000;
 
 .footer-nav-font {
   font-family: futura-pt, sans-serif;
@@ -207,10 +193,6 @@
   text-decoration: none;
 }
 
-@footerNavLinkColor: #000000;
-
-@footerNavActiveColor: #000000;
-
 .site-info-font {
   font-family: futura-pt, sans-serif;
   font-weight: 400;
@@ -221,4 +203,3 @@
   text-decoration: none;
 }
 
-@siteInfoColor: #000000;
