@@ -1,7 +1,17 @@
 <!doctype html>
 <html
         class='touch-styles'
-        {.if authenticatedAccount}data-authenticated-account{.end}>
+        {.if authenticatedAccount}data-authenticated-account{.end}
+        xmlns='http://www.w3.org/TR/html5'
+        xmlns:xml='http://www.w3.org/XML/1998/namespace'
+        xmlns:xmlns='http://www.w3.org/2000/xmlns'
+        xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+        xmlns:squarespace='http://www.lvier.de/assets/squarespace.xhtml'
+        xsi:schemaLocation='
+            http://www.lvier.de/assets/squarespace.xhtml
+            http://www.lvier.de/assets/squarespace.xsd'
+        xml:lang='de'
+        lang='de'>
 
 <head>
     <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -13,9 +23,9 @@
     <!-- Must be below squarespace-headers -->
     <script>
         (function(){
-            var e = 'ontouchstart' in window || navigator.msMaxTouchPoints;
-            var t = document.documentElement;
-            if(!e && t){ t.className=t.className.replace(/touch-styles/,''); }
+            if (!('ontouchstart' in window || navigator.msMaxTouchPoints) && document.documentElement) {
+                document.documentElement.className = document.documentElement.className.replace(/touch-styles/,'');
+            }
         })()
     </script>
 </head>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema
+        xmlns="http://www.lvier.de/assets/lvier.xhtml"
+        xmlns:xml="http://www.w3.org/XML/1998/namespace"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xsi:schemaLocation="
+            http://www.lvier.de/assets/lvier.xhtml
+            http://www.lvier.de/assets/lvier.xsd
+            http://www.w3.org/2001/XMLSchema
+            http://www.w3.org/2001/XMLSchema.xsd"
+        targetNamespace="http://www.lvier.de/assets/squarespace.xhtml"
+        elementFormDefault="qualified">
+    <xs:element name="block-field">
+        <xs:complexType>
+            <xs:attribute name="id" type="xs:ID" use="required"/>
+            <xs:attribute name="columns">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger">
+                        <xs:enumeration value="1"/>
+                        <xs:enumeration value="12"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="lock-layout" type="xs:boolean"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="navigation">
+        <xs:complexType>
+            <xs:attribute name="navigationId" type="xs:ID" use="required"/>
+            <xs:attribute name="template" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="folder-navigation">
+        <xs:complexType>
+            <xs:attribute name="template" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="category">
+        <xs:alternative>
+            <xs:complexType>
+                <xs:attribute name="collection" type="xs:string" use="required"/>
+                <xs:attribute name="template" type="xs:string"/>
+            </xs:complexType>
+        </xs:alternative>
+        <xs:alternative>
+            <xs:complexType>
+                <xs:sequence>
+                    <xs:any minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+                <xs:attribute name="collection" type="xs:string" use="required"/>
+            </xs:complexType>
+        </xs:alternative>
+    </xs:element>
+    <xs:element name="query">
+       <xs:complexType>
+           <xs:sequence>
+               <xs:any minOccurs="0" maxOccurs="unbounded"/>
+           </xs:sequence>
+           <xs:attribute name="collection" type="xs:string" use="required"/>
+           <xs:attribute name="limit">
+               <xs:simpleType>
+                   <xs:restriction base="xs:positiveInteger">
+                       <xs:maxInclusive value="100"/>
+                   </xs:restriction>
+               </xs:simpleType>
+           </xs:attribute>
+           <xs:attribute name="skip">
+               <xs:simpleType>
+                   <xs:restriction base="xs:positiveInteger">
+                       <xs:maxInclusive value="10"/>
+                   </xs:restriction>
+               </xs:simpleType>
+           </xs:attribute>
+           <xs:attribute name="category" type="xs:string"/>
+           <xs:attribute name="tag" type="xs:string"/>
+           <xs:attribute name="featured" type="xs:boolean"/>
+       </xs:complexType>
+    </xs:element>
+</xs:schema>
