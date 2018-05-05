@@ -46,7 +46,7 @@
                                 {.end}
                                 {.section externalLink}
                                 <div class="external">
-                                    <a href="{url}" {.section newWindow}target="_blank"{.end}>{title}</a>
+                                    <a href="{url}" {.section newWindow} target="_blank" {.end}>{title}</a>
                                 </div>
                                 {.end}
                             </div>
@@ -73,7 +73,7 @@
             <div>
                 {.section externalLink}
                 <div class="external">
-                    <a href="{url}" {.section newWindow}target="_blank"{.end}>{title}</a>
+                    <a href="{url}" {.section newWindow} target="_blank" {.end}>{title}</a>
                 </div>
                 {.end}
             </div>

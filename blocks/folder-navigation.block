@@ -22,7 +22,7 @@
                 {.end}
                 {.section externalLink}
                 <div class='external-link'>
-                    <a href='{url}' {.section newWindow}target='_blank'{.end}>{title}</a>
+                    <a href='{url}' {.section newWindow} target='_blank' {.end}>{title}</a>
                 </div>
                 {.end}
             </li>

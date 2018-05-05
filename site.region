@@ -4,7 +4,6 @@
         {.if authenticatedAccount}data-authenticated-account{.end}
         xmlns='http://www.w3.org/TR/html5'
         xmlns:xml='http://www.w3.org/XML/1998/namespace'
-        xmlns:xmlns='http://www.w3.org/2000/xmlns'
         xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
         xmlns:squarespace='http://www.lvier.de/assets/squarespace.xhtml'
         xsi:schemaLocation='
@@ -434,7 +433,7 @@
                 class='main-content'
                 data-content-field='main-content'
                 data-collection-id='{collection.id}'
-                {.if @isGallery || @isIndex}{.or}data-edit-main-image='Banner'{.end}>
+                {.if @isGallery || @isIndex}{.or} data-edit-main-image='Banner' {.end}>
             {squarespace.main-content}
         </div><!--
         -->{.if @isBlog}<!--
