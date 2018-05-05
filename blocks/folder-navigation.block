@@ -10,12 +10,8 @@
                 <div
                         class='
                             {collection.typeLabel}-collection
-                            {.section active}
-                                active-link
-                            {.end}
-                            {.if collection.folder}
-                                folder
-                            {.end}
+                            {.section active}active-link{.end}
+                            {.if collection.folder}folder{.end}
                             {.if folderActive}
                                 active-link
                                 active-folder
@@ -26,7 +22,7 @@
                 {.end}
                 {.section externalLink}
                 <div class='external-link'>
-                    <a href='{url}' {.section newWindow} target='_blank' {.end}>{title}</a>
+                    <a href='{url}' {.section newWindow}target='_blank'{.end}>{title}</a>
                 </div>
                 {.end}
             </li>

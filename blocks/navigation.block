@@ -15,13 +15,9 @@
                     <div
                             class="
                                 index
-                                {.if active}
-                                    active
-                                {.end}
+                                {.if active}active{.end}
                                 {.section collection}
-                                    {.if homepage}
-                                        homepage
-                                    {.end}
+                                    {.if homepage}homepage{.end}
                                 {.end}">
                         <a href="{collection.fullUrl}">{collection.navigationTitle}</a>
                     </div>
@@ -31,13 +27,9 @@
                         <div
                                 class="
                                     folder
-                                    {.if folderActive}
-                                        active
-                                    {.end}
+                                    {.if folderActive}active{.end}
                                     {.section collection}
-                                        {.if homepage}
-                                            homepage
-                                        {.end}
+                                        {.if homepage}homepage{.end}
                                     {.end}">
                             <div class="folder-toggle" data-href="{collection.fullUrl}"><!--
                                 -->{collection.navigationTitle}<!--
@@ -46,13 +38,16 @@
                                 {.repeated section items}
                                 <div>
                                     {.collection?}
-                                    <div class="collection{.if active} active{.end}">
+                                    <div
+                                            class="
+                                                collection
+                                                {.if active}active{.end}">
                                         <a href="{collection.fullUrl}">{collection.navigationTitle}</a>
                                     </div>
                                     {.end}
                                     {.section externalLink}
                                     <div class="external">
-                                        <a href="{url}"{.section newWindow} target="_blank"{.end}>{title}</a>
+                                        <a href="{url}" {.section newWindow}target="_blank"{.end}>{title}</a>
                                     </div>
                                     {.end}
                                 </div>
@@ -62,7 +57,11 @@
                         {.or}
                         <div>
                             {.section collection}
-                            <div class="collection{.if active} active{.end}{.if homepage} homepage{.end}">
+                            <div
+                                    class="
+                                        collection
+                                        {.if active}active{.end}
+                                        {.if homepage}homepage{.end}">
                                 <a href="{fullUrl}">{navigationTitle}</a>
                             </div>
                             {.end}
@@ -75,7 +74,7 @@
                 <div>
                     {.section externalLink}
                     <div class="external">
-                        <a href="{url}"{.section newWindow} target="_blank"{.end}>{title}</a>
+                        <a href="{url}" {.section newWindow}target="_blank"{.end}>{title}</a>
                     </div>
                     {.end}
                 </div>
@@ -84,7 +83,7 @@
             -->{.end}
         </nav>
     </div>
-    <!-- style below blocks out the mobile nav toggle only when nav is loaded -->
+    <!-- Style below blocks out the mobile nav toggle only when nav is loaded. -->
     <style>
         .mobile-nav-toggle-label {
             display: inline-block !important;

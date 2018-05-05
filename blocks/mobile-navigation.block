@@ -11,7 +11,13 @@
             {.collection?}
             <div>
                 {.index?}
-                <div class="index{.if active} active{.end}{.section collection}{.if homepage} homepage{.end}{.end}">
+                <div
+                        class="
+                            index
+                            {.if active}active{.end}
+                            {.section collection}
+                                {.if homepage}homepage{.end}
+                            {.end}">
                     <a href="{collection.fullUrl}">{collection.navigationTitle}</a>
                 </div>
                 {.or}
@@ -20,13 +26,9 @@
                     <div
                             class="
                                 folder
-                                {.if folderActive}
-                                    active
-                                {.end}
+                                {.if folderActive}active{.end}
                                 {.section collection}
-                                    {.if homepage}
-                                        homepage
-                                    {.end}
+                                    {.if homepage}homepage{.end}
                                 {.end}">
                         <div class="folder-toggle" data-href="{collection.fullUrl}"><!--
                             -->{collection.navigationTitle}<!--
@@ -35,13 +37,16 @@
                             {.repeated section items}
                             <div>
                                 {.collection?}
-                                <div class="collection{.if active} active{.end}">
+                                <div
+                                        class="
+                                            collection
+                                            {.if active}active{.end}">
                                     <a href="{collection.fullUrl}">{collection.navigationTitle}</a>
                                 </div>
                                 {.end}
                                 {.section externalLink}
                                 <div class="external">
-                                    <a href="{url}"{.section newWindow} target="_blank"{.end}>{title}</a>
+                                    <a href="{url}" {.section newWindow}target="_blank"{.end}>{title}</a>
                                 </div>
                                 {.end}
                             </div>
@@ -51,7 +56,11 @@
                     {.or}
                     <div>
                         {.section collection}
-                        <div class="collection{.if active} active{.end}{.if homepage} homepage{.end}">
+                        <div
+                                class="
+                                    collection
+                                    {.if active}active{.end}
+                                    {.if homepage}homepage{.end}">
                             <a href="{fullUrl}">{navigationTitle}</a>
                         </div>
                         {.end}
@@ -64,7 +73,7 @@
             <div>
                 {.section externalLink}
                 <div class="external">
-                    <a href="{url}"{.section newWindow} target="_blank"{.end}>{title}</a>
+                    <a href="{url}" {.section newWindow}target="_blank"{.end}>{title}</a>
                 </div>
                 {.end}
             </div>

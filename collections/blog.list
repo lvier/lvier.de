@@ -130,8 +130,7 @@
                     -->{.end}<!--
                 --></span><!--
                 -->{.end}<!--
-                -->{@|like-button}<!--
-                -->{@|social-button-inline}
+                -->{@|like-button}{@|social-button-inline}
             </div>
         </footer>
         {.if postItemInjectCode}
