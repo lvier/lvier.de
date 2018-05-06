@@ -27,8 +27,6 @@
         a,
         label {
             -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
-            -moz-tap-highlight-color: rgba(0, 0, 0, 0) !important;
-            tap-highlight-color: rgba(0, 0, 0, 0) !important;
         }
     }
 }
@@ -390,8 +388,6 @@
     .mobile-nav-toggle {
         display: block;
         .border-box;
-        z-index: 100;
-        width: 10%;
         position: absolute;
         z-index: 1002;
         top: 50%;
@@ -415,7 +411,6 @@
             background-color: fade(@navColor, 100%);
             -webkit-transition: -webkit-transform 0.15s 0s ease-in-out, top 0.15s 0.15s ease-in-out;
             -moz-transition: -moz-transform 0.15s 0s ease-in-out, top 0.15s 0.15s ease-in-out;
-            -ms-transition: -ms-transform 0.15s 0s ease-in-out, top 0.15s 0.15s ease-in-out;
             -o-transition: -o-transform 0.15s 0s ease-in-out, top 0.15s 0.15s ease-in-out;
             transition: transform 0.15s 0s ease-in-out, top 0.15s 0.15s ease-in-out;
             -webkit-transform-origin: 50% 50%;
@@ -491,7 +486,6 @@
         width: 100%;
         -webkit-transition: -webkit-transform 0.14s ease-in-out;
         -moz-transition: -moz-transform 0.14s ease-in-out;
-        -ms-transition: -ms-transform 0.14s ease-in-out;
         -o-transition: -o-transform 0.14s ease-in-out;
         transition: transform 0.14s ease-in-out;
     }
@@ -516,8 +510,6 @@
                 .bottom-bar {
                     -webkit-transition: top 0.15s 0.15s ease-in-out, -webkit-transform 0.15s 0.3s ease-in-out;
                     -moz-transition: top 0.15s 0.15s ease-in-out, -moz-transform 0.15s 0.3s ease-in-out;
-                    -ms-transition: top 0.15s 0.15s ease-in-out, -ms-transform 0.15s 0.3s ease-in-out;
-                    -o-transition: top 0.15s 0.15s ease-in-out, -o-transform 0.15s 0.3 ease-in-out;
                     transition: top 0.15s 0.15s ease-in-out, transform 0.15s 0.3s ease-in-out;
                 }
 
@@ -581,7 +573,7 @@
         }
 
         > div {
-            margin-right: 0%;
+            margin-right: 0;
         }
     }
 

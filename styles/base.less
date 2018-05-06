@@ -319,8 +319,7 @@ blockquote {
  */
 
 .sqs-block-horizontalrule hr {
-    border-style: none;
-    border-width: 0;
+    border: 0 none;
     margin: @sitePadding 0;
     color: fade(@pageTextColor, 15%);
     background-color: fade(@pageTextColor, 15%);
@@ -581,7 +580,6 @@ body:not(.sqs-edit-mode) .pre-footer-inner .sqs-layout.empty {
 #categoryNav,
 #rightSidebar {
     .border-box;
-    width: 26.5625%;
     width: ~"calc(255px - 0%)";
     display: inline-block;
     vertical-align: top;
@@ -606,7 +604,6 @@ li.filter {
 
 .collection-type-blog {
     #content {
-        width: 73.4375%;
         width: ~"calc(100% - 255px)";
         display: inline-block;
         vertical-align: top;
@@ -617,7 +614,6 @@ li.filter {
 .collection-type-products:not(.hide-products-sidebar) {
     #folderNav + #content,
     #categoryNav + #content {
-        width: 73.4375%;
         width: ~"calc(100% - 255px)";
         display: inline-block;
         vertical-align: top;
@@ -798,7 +794,6 @@ li.filter {
             transform: translate(-50%, -45%) !important;
             -webkit-transition: all .25s ease-in-out .3s;
             -moz-transition: all .25s ease-in-out .3s;
-            -ms-transition: all .25s ease-in-out .3s;
             -o-transition: all .25s ease-in-out .3s;
             transition: all .25s ease-in-out .3s;
             opacity: 0;
@@ -853,8 +848,7 @@ li.filter {
 
         .meta {
             text-align: center;
-            background-color: transparent !important;
-            background: none !important;
+            background: transparent none !important;
             margin: 0;
             z-index: 100;
             height: auto !important;
@@ -1081,9 +1075,9 @@ body:not(.collection-type-gallery).banner-button-style-raised {
     .desc-wrapper p:last-child > a,
     &.has-promoted-gallery #promotedGalleryWrapper .sqs-gallery-block-slideshow .meta-description p:last-child > a,
     &.has-promoted-gallery .promoted-gallery-wrapper .sqs-gallery-block-slideshow .meta-description p:last-child > a {
-        -webkit-box-shadow: 0px 0.2em 0px 0px darken(@bannerButtonColor,8%);
-        -moz-box-shadow: 0px 0.2em 0px 0px darken(@bannerButtonColor,8%);
-        box-shadow: 0px 0.2em 0px 0px darken(@bannerButtonColor,8%);
+        -webkit-box-shadow: 0 0.2em 0 0 darken(@bannerButtonColor, 8%);
+        -moz-box-shadow: 0 0.2em 0 0 darken(@bannerButtonColor, 8%);
+        box-shadow: 0 0.2em 0 0 darken(@bannerButtonColor, 8%);
 
         &:hover {
             background-color: lighten(@bannerButtonColor,3%);
@@ -1221,7 +1215,6 @@ body:not(.collection-type-gallery).banner-button-corner-style-pill {
             .transform-origin(0, 0);
             -webkit-transition: -webkit-transform 0.14s 0s ease-in-out;
             -moz-transition: -moz-transform 0.14s 0s ease-in-out;
-            -ms-transition: -ms-transform 0.14s 0s ease-in-out;
             -o-transition: -o-transform 0.14s 0s ease-in-out;
             transition: transform 0.14s 0s ease-in-out;
 
@@ -1371,7 +1364,6 @@ body:not(.collection-type-gallery).banner-button-corner-style-pill {
             .scale(1, 0);
             -webkit-transition: -webkit-transform 0.14s 0s ease-in-out;
             -moz-transition: -moz-transform 0.14s 0s ease-in-out;
-            -ms-transition: -ms-transform 0.14s 0s ease-in-out;
             -o-transition: -o-transform 0.14s 0s ease-in-out;
             transition: transform 0.14s 0s ease-in-out;
 
@@ -1491,8 +1483,6 @@ body:not(.collection-type-gallery).banner-button-corner-style-pill {
     .mobile-nav-toggle {
         display: block;
         .border-box;
-        z-index: 100;
-        width: 10%;
         position: absolute;
         z-index: 1002;
         top: 50%;
@@ -1516,7 +1506,6 @@ body:not(.collection-type-gallery).banner-button-corner-style-pill {
             background-color: fade(@navColor, 100%);
             -webkit-transition: -webkit-transform 0.1s 0s ease-in-out, top 0.1s 0.1s ease-in-out;
             -moz-transition: -moz-transform 0.1s 0s ease-in-out, top 0.1s 0.1s ease-in-out;
-            -ms-transition: -ms-transform 0.1s 0s ease-in-out, top 0.1s 0.1s ease-in-out;
             -o-transition: -o-transform 0.1s 0s ease-in-out, top 0.1s 0.1s ease-in-out;
             transition: transform 0.1s 0s ease-in-out, top 0.1s 0.1s ease-in-out;
             -webkit-transform-origin: 50% 50%;
@@ -1560,7 +1549,6 @@ body:not(.collection-type-gallery).banner-button-corner-style-pill {
         transform: translate3d(260px, 0, 0);
         -webkit-transition: -webkit-transform 0s 0s ease-in-out;
         -moz-transition: -moz-transform 0s 0s ease-in-out;
-        -ms-transition: -ms-transform 0s 0s ease-in-out;
         -o-transition: -o-transform 0s 0s ease-in-out;
         transition: transform 0s 0s ease-in-out;
 
@@ -1592,7 +1580,6 @@ body:not(.collection-type-gallery).banner-button-corner-style-pill {
         width: 100%;
         -webkit-transition: -webkit-transform 0.2s ease-in-out;
         -moz-transition: -moz-transform 0.2s ease-in-out;
-        -ms-transition: -ms-transform 0.2s ease-in-out;
         -o-transition: -o-transform 0.2s ease-in-out;
         transition: transform 0.2s ease-in-out;
     }
@@ -1600,15 +1587,10 @@ body:not(.collection-type-gallery).banner-button-corner-style-pill {
     &.mobile-nav-open {
         #siteWrapper {
             position: fixed;
-            -webkit-transform: translatex(-260px);
             -webkit-transform: translate3d(-260px, 0, 0);
-            -moz-transform: translatex(-260px) translatez(0);
             -moz-transform: translate3d(-260px, 0, 0);
-            -ms-transform: translatex(-260px) translatez(0);
             -ms-transform: translate3d(-260px, 0, 0);
-            -o-transform: translatex(-260px) translatez(0);
             -o-transform: translate3d(-260px, 0, 0);
-            transform: translatex(-260px) translatez(0);
             transform: translate3d(-260px, 0, 0);
 
             .mobile-nav-toggle {
@@ -1616,7 +1598,6 @@ body:not(.collection-type-gallery).banner-button-corner-style-pill {
                 .bottom-bar {
                     -webkit-transition: top 0.1s 0.1s ease-in-out, -webkit-transform 0.1s 0.2s ease-in-out;
                     -moz-transition: top 0.1s 0.1s ease-in-out, -moz-transform 0.1s 0.2s ease-in-out;
-                    -ms-transition: top 0.1s 0.1s ease-in-out, -ms-transform 0.1s 0.2s ease-in-out;
                     -o-transition: top 0.1s 0.1s ease-in-out, -o-transform 0.1s 0.2s ease-in-out;
                     transition: top 0.1s 0.1s ease-in-out, transform 0.1s 0.2s ease-in-out;
                 }
@@ -1846,7 +1827,7 @@ html.touch {
 
 // Adjust frontend edit outline and toolbar
 .banner-thumbnail-wrapper.sqs-frontend-edit-wrapper.sqs-frontend-outline {
-    outline-offset: 0px;
+    outline-offset: 0;
 }
 .banner-thumbnail-wrapper {
     .sqs-frontend-edit {
