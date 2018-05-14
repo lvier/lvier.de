@@ -1,11 +1,7 @@
 {.section collection}
 <div>
-    {.if title}
-    <h1>{title}</h1>
-    {.end}
-    {.if description}
-    <p>{description}</p>
-    {.end}
+    {.if title}<h1>{title}</h1>{.end}
+    {.if description}<p>{description}</p>{.end}
 </div>
 {.end}
 
