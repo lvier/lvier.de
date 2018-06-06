@@ -1,3 +1,9 @@
+/*
+ * Helper styles
+ *
+ * This stylesheet contains styles that fit nowhere else.
+ */
+
 html:not(.js) body[class^=collection-] {
     img {
         max-width: 100%;
@@ -6,70 +12,6 @@ html:not(.js) body[class^=collection-] {
     [href="#"] {
         .hidden;
     }
-}
-
-/*
- * Helper classes
- *
- * Based on https://github.com/h5bp/html5-boilerplate/blob/master/css/main.css
- */
-
-// Hide from both screen readers and browsers.
-.hidden {
-    display: none !important;
-    visibility: hidden;
-}
-
-// Hide only visually, but have it available for screen readers.
-.visuallyhidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-}
-
-// Extends the .visuallyhidden class to allow the element to be focusable
-// when navigated to via the keyboard.
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
-    clip: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    position: static;
-    width: auto;
-}
-
-// Hide visually and from screen readers, but maintain layout
-.invisible {
-    visibility: hidden;
-}
-
-// Hide imageLoader images that have no src.
-img[data-src]:not([src]) {
-    visibility: hidden;
-}
-
-// Contain floats.
-.clearfix:before,
-.clearfix:after {
-    // The space content is one way to avoid an Opera bug when the
-    // contenteditable attribute is included anywhere else in the document.
-    // Otherwise it causes space to appear at the top and bottom of elements
-    // that receive the clearfix class.
-    content: " ";
-
-    // The use of table rather than block is only necessary if using
-    // :before to contain the top-margins of child elements.
-    display: table;
-}
-
-.clearfix:after {
-    clear: both;
 }
 
 /*
@@ -138,3 +80,71 @@ img[data-src]:not([src]) {
         page-break-after: avoid;
     }
 }
+
+/*
+ * Helper classes
+ *
+ * The following classes were adapted from code originally taken from html5-boilerplate.
+ * (C) Copyright 2018
+ * HTML5 Boilerplate
+ * SPDX-License-Identifier: MIT
+ */
+
+// Hide from both screen readers and browsers.
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+// Hide only visually, but have it available for screen readers.
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+// Extends the .visuallyhidden class to allow the element to be focusable
+// when navigated to via the keyboard.
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+// Hide visually and from screen readers, but maintain layout
+.invisible {
+    visibility: hidden;
+}
+
+// Hide imageLoader images that have no src.
+img[data-src]:not([src]) {
+    visibility: hidden;
+}
+
+// Contain floats.
+.clearfix:before,
+.clearfix:after {
+    // The space content is one way to avoid an Opera bug when the
+    // contenteditable attribute is included anywhere else in the document.
+    // Otherwise it causes space to appear at the top and bottom of elements
+    // that receive the clearfix class.
+    content: " ";
+
+    // The use of table rather than block is only necessary if using
+    // :before to contain the top-margins of child elements.
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+

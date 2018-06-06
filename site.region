@@ -1,4 +1,11 @@
 <!doctype html>
+
+<!--
+    Main region
+
+    This file contains the root template for the whole site.
+-->
+
 <html
         class='touch-styles'
         {.if authenticatedAccount}data-authenticated-account{.end}

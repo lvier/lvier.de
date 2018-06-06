@@ -1,3 +1,12 @@
+<!--
+    Mobile primary navigation
+
+    This file is a template for the primary navigation on smaller devices. The primary navigation is contains the most
+    important pages. The mobile primary navigation is a menu that only appears on smaller devices, can be opened using a
+    button in the menu bar and will fly in from the right side of the screen, covering the entire height, but not the
+    entire width.
+-->
+
 {.if items || websiteSettings.userAccountSettings.loginAllowed}
 <div id="mobileNavWrapper" class="nav-wrapper" data-content-field="navigation-mobileNav">
     <nav id="mobileNavigation">

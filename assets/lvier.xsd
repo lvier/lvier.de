@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!--
+    XML schema definition for the L4 XML namespace
+
+    This is the authoritative XML schema for the XML namespace http://www.lvier.de/assets/lvier.xhtml of the
+    Evangelische Gemeinschaft Kassel e.V., since the namespace is currently unused, this file is a stub.
+-->
+
 <xs:schema
         xmlns="http://www.lvier.de/assets/lvier.xhtml"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

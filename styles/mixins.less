@@ -1,8 +1,14 @@
+/*
+ * Compatibility mixins
+ *
+ * This file contains mixins to apply rules along with any prefixed variants that have a sufficiently compatible
+ * implementation.
+ */
 .border-box,
 .border-box:before,
 .border-box:after {
-    -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 

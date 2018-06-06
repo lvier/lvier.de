@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!--
+    XML schema definition for L4's Squarespace namespace
+
+    This is an XML schema for the XML namespace http://www.lvier.de/assets/squarespace.xhtml of the Evangelische
+    Gemeinschaft Kassel e.V., since this schema describes Tags, that are proprietary to Squarespace and lack in
+    documentation this schema is not authoritative and may or may not be correct or complete.
+-->
+
 <xs:schema
         xmlns="http://www.lvier.de/assets/lvier.xhtml"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

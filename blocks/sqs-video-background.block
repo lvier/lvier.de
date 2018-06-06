@@ -1,3 +1,9 @@
+<!--
+    Squarespace video background
+
+    This file is a template for the full-bleed banner video feature of the Bedford family of Squarespace templates.
+-->
+
 {.section video}
 <div
         class="sqs-video-background content-fill"

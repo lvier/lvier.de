@@ -4,6 +4,8 @@
  * Additional scripts.
  *
  * This script implements additional functionality not provided by Squarespace.
+ *
+ * TODO This is a stub
  */
 
 /*

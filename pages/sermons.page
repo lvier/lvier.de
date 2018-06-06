@@ -1,3 +1,12 @@
+<!--
+    Sermon archive page
+
+    This is a page that shows the list of available recordings of sermons. The sermons are loaded from our S3 bucket.
+    This page exists as a temporary solution until the sermons are properly set up as a podcast in Squarespace.
+
+    TODO This page is still under construction
+-->
+
 {.section collection}
 <div>
     {.if title}

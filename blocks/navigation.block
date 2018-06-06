@@ -1,3 +1,11 @@
+<!--
+    Desktop primary navigation
+
+    This file is a template for the primary navigation on larger devices. The primary navigation contains the most
+    important pages. The desktop primary navigation is a menu that only appears on lager devices, where it is contained
+    in the right part of the menu bar.
+-->
+
 {.if items || websiteSettings.userAccountSettings.loginAllowed}
 <div>
     <div id="mainNavWrapper" class="nav-wrapper" data-content-field="navigation-mainNav">

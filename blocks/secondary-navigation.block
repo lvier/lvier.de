@@ -1,3 +1,11 @@
+<!--
+    Secondary navigation
+
+    This file is a template for the secondary navigation. The secondary navigation contains pages that are not the main
+    focus of the web page, such as legal matters, accessibility aids, or a search feature. It is located near the bottom
+    of the page above the legally mandated contact information.
+-->
+
 {.section items}
 <div id="secondaryNavWrapper" class="nav-wrapper" data-content-field="navigation-secondaryNav">
     <nav id="secondaryNavigation" data-content-field="navigation-secondaryNav">

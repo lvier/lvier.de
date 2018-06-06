@@ -1,3 +1,10 @@
+<!--
+    Blog archive
+
+    This entry is a template for the overview of posts for a blog. It will render a paginated list of blog posts with
+    bylines and excerpts.
+-->
+
 <div class="blog-list">
     {.repeated section items}
     <article class="entry h-entry {@|item-classes}" id="article-{id}" data-item-id="{id}">

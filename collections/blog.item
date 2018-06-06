@@ -1,3 +1,10 @@
+<!--
+    Blog entry
+
+    This file is a template for a single entry of a blog. It will render a single blogpost in full length with
+    buttons to navigate to the previous and next post in that particular blog.
+-->
+
 <div class="blog-item">
     {.section item}
     <div>

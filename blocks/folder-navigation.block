@@ -1,4 +1,12 @@
-{.section items}<!--
+<!--
+    Folder navigation
+
+    This file is a template for the folder navigation. The folder navigation allows a user viewing any page that is part
+    of a folder to quickly navigate to any other page in the same folder. It appears to the left of the page content on
+    sufficiently large devices and as a collapsible menu over the content on smaller devices.
+--><!--
+
+-->{.section items}<!--
 --><div id='folderNav' data-content-field='navigation-folderNav'>
     <div class='folder-nav-toggle'></div>
     <nav class='folder-nav' role='navigation'>

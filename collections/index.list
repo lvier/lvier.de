@@ -1,3 +1,9 @@
+<!--
+    Page index
+
+    This is a template for an index page. It will render a set of pages in an index as one long page.
+-->
+
 {.section collection}
 <div>
     {.repeated section collections}
