@@ -41,10 +41,6 @@
         id='{squarespace.page-id}'
         class='
             {squarespace.page-classes}
-            banner-button-style-solid
-            banner-button-corner-style-pill
-            banner-slideshow-controls-arrows
-            meta-priority-date
             {.if item}
                 {.section item}
                     {.if productType}{.or}
