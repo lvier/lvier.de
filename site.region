@@ -24,7 +24,7 @@
     {.if template.mobileStylesEnabled}
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     {.end}
-    <link rel='stylesheet' href='//unpkg.com/normalize.css/normalize.css'>
+    <link rel='stylesheet' href='//unpkg.com/normalize.css@8.0.0/normalize.css'>
     {squarespace-headers}
 
     <!-- Must be below squarespace-headers -->
