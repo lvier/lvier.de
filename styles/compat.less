@@ -16,4 +16,103 @@
  * Apple Safari Mobile 5.0+
  * Google Android Browser 4.4+
  * Blackberry Browser 10
+ *
+ * This stylesheet contains rules taken from normalize.css
+ * (C) Copyright 2013
+ * Anish Athalye
+ * SPDX-License-Identifier: MIT
  */
+
+// Correct `block` display not defined in IE 8/9.
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+    display: block;
+}
+
+// Correct `inline-block` display not defined in IE 8/9.
+audio,
+canvas,
+video {
+    display: inline-block;
+}
+
+// Remove excess height in iOS 5 devices.
+audio:not([controls]) {
+    height: 0;
+}
+
+// Address `[hidden]` styling not present in IE 8/9.
+[hidden] {
+    display: none;
+}
+
+/*
+ * Links
+ */
+
+// Remove the gray background color from active links in IE 10.
+a {
+    background: transparent;
+}
+
+/*
+ * Typography
+ */
+
+// Address styling not present in IE 8/9.
+mark {
+    background: #ff0;
+    color: #000;
+}
+
+/*
+ * Embedded content
+ */
+
+// Remove border when inside `a` element in IE 8/9.
+img {
+    border: 0;
+}
+
+// Correct overflow displayed oddly in IE 9.
+svg:not(:root) {
+    overflow: hidden;
+}
+
+/*
+ * Forms
+ */
+
+// Correct `color` not being inherited in IE 8/9.
+legend {
+    border: 0;
+}
+
+// Avoid the WebKit bug in Android Browser 4.0.* where -webkit-appearance destroys native `audio` and `video` controls.
+html input[type="button"] {
+    -webkit-appearance: button;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    // Address box sizing set to `content-box` in IE 8/9/10.
+    box-sizing: border-box;
+
+    // Remove excess padding in IE 8/9/10.
+    padding: 0;
+}
+
+// Remove default vertical scrollbar in IE 8/9.
+textarea {
+    overflow: auto;
+}
