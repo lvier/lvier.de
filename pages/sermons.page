@@ -18,4 +18,12 @@
 </div>
 {.end}
 
-<div id='sermons'></div>
+<div id='sermons'>
+    <noscript>
+        <p>
+            Da diese Liste dynamisch aus unserem RSS-feed generiert wird, benötigt diese Seite JavaScript. Bitte
+            aktiviere JavaScript in deinem Browser, oder verwende unsere <a href='/predigten'>Archivseite</a>.
+        </p>
+    </noscript>
+    <div id='sermons'></div>
+</div>
