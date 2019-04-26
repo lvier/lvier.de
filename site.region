@@ -488,6 +488,9 @@
 <squarespace:script src='jquery.js' combo='true' />
 <squarespace:script src='underscore.js' combo='true' />
 <squarespace:script src='script.js' combo='true' />
+{.equal? collection.typeName "sermons"}
+<squarespace:script src='sermons.js' combo='true' />
+{.end}
 {squarespace-footers}
 
 </html>
