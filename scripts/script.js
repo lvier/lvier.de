@@ -11,11 +11,11 @@
  */
 (function() {
     "use strict";
-})();
 
-/*
- * Main script.
- */
-window.onload = function() {
-    "use strict";
-};
+    /*
+     * Main script.
+     */
+    window.onload = function() {
+        "use strict";
+    };
+})();
