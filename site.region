@@ -485,8 +485,8 @@
 </body>
 
 <squarespace:script src='site-bundle.js' combo='false' />
-<squarespace:script src='jquery.js' combo='false' />
-<squarespace:script src='underscore.js' combo='false' />
+<squarespace:script src='jquery.js' combo='true' />
+<squarespace:script src='underscore.js' combo='true' />
 <squarespace:script src='script.js' combo='true' />
 {squarespace-footers}
 
