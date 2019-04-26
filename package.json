@@ -14,5 +14,6 @@
   "keywords": [],
   "author": "Jean-Pierre Höhmann <jp@hhmn.de>",
   "license": "UNLICENSED",
-  "private": true
+  "private": true,
+  "dependencies": {}
 }
