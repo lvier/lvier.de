@@ -1,5 +1,3 @@
-"use strict";
-
 /*
  * Additional scripts.
  *
@@ -12,12 +10,12 @@
  * Initial setup.
  */
 (function() {
-
+    "use strict";
 })();
 
 /*
  * Main script.
  */
 window.onload = function() {
-
+    "use strict";
 };
