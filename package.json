@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "squarespace-server -A --auth https://www.lvier.de"
+    "start": "squarespace-server -A https://www.lvier.de"
   },
   "repository": {
     "type": "git",
