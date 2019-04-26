@@ -15,7 +15,7 @@
     /*
      * Main script.
      */
-    window.onload = function() {
-        "use strict";
-    };
+    $(document).ready(function() {
+        console.log("Ready.");
+    });
 })();
