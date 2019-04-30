@@ -484,9 +484,9 @@
 
 </body>
 
+<script src='//unpkg.com/jquery@3.4.0/dist/jquery.js'></script>
+<script src='//unpkg.com/underscore@1.9.1/underscore.js'></script>
 <squarespace:script src='site-bundle.js' combo='false' />
-<squarespace:script src='jquery.js' combo='true' />
-<squarespace:script src='underscore.js' combo='true' />
 <squarespace:script src='script.js' combo='true' />
 {.equal? collection.typeName "sermons"}
 <squarespace:script src='sermons.js' combo='true' />
