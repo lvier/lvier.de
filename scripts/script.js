@@ -15,7 +15,7 @@
     /*
      * Main script.
      */
-    $(document).ready(function() {
+    window.addEventListener('load', function() {
         console.log("Ready.");
     });
 })();

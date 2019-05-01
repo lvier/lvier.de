@@ -18,7 +18,8 @@
     /*
      * Main script.
      */
-    $(document).ready(function() {
+    window.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('spinner').classList.remove('hidden');
 
         // Check if XSLT is supported.
         if (xsltProcessor) {
@@ -46,19 +47,19 @@
             }
 
             dom = fragment;
-        }
+        };
 
-        $("#spinner").remove();
+        document.getElementById('spinner').classList.add('hidden');
         if (dom) {
             // Display the list.
-            $("#sermons").empty().append(dom);
+            document.getElementById('sermons').append(dom);
         } else if (!xsltProcessor) {
             // Shout at the user for being on IE.
-            $("#unsupported-alert").removeClass('hidden');
+            document.getElementById('unsupported-alert').classList.remove('hidden');
         } else {
             // Generic error message otherwise.
             // TODO This could use some more error handling.
-            $("#fail-alert").removeClass('hidden');
+            document.getElementById('fail-alert').classList.remove('hidden');
         }
     });
 })();
