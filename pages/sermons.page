@@ -2,8 +2,6 @@
     Sermon download list
 
     This shows a compact list of the most recent sermons, with an option to download them in bulk.
-
-    TODO This page is still under construction
 -->
 
 {.section collection}
@@ -43,4 +41,7 @@
             </p>
         </div>
     </div>
+
+    <!-- Hint for Squarespace -->
+    <div class="sqs-audio-embed hidden"></div>
 </div>
