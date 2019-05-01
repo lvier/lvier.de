@@ -80,7 +80,9 @@
                 </xsl:attribute>
                 <xsl:attribute name="data-color-theme">light</xsl:attribute>
             </div>
-            <hr />
+            <xsl:if test="position() != last()">
+                <hr />
+            </xsl:if>
         </xsl:if>
     </xsl:template>
     
