@@ -43,5 +43,14 @@
     </div>
 
     <!-- Hint for Squarespace -->
-    <div class="sqs-audio-embed hidden"></div>
+    <div
+            class="sqs-audio-embed hidden"
+            data-url=""
+            data-mime-type=""
+            data-title=""
+            data-author=""
+            data-show-download=""
+            data-design-style=""
+            data-duration-in-ms=""
+            data-color-theme=""></div>
 </div>
