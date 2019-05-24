@@ -1924,3 +1924,15 @@ li > p {
         margin-block-end: 0;
     }
 }
+
+// Make banners in content-links not get cropped.
+.sqs-block-collectionlink .collectionlink-thumbnail,
+.link-block .collectionlink-thumbnail {
+    height: auto !important;
+
+    img {
+        width: 100% !important;
+        left: 0 !important;
+        height: auto !important;
+    }
+}
