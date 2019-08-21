@@ -360,18 +360,6 @@ blockquote {
     z-index: 9999;
 }
 
-// For the pill on desktop.
-@media screen and (min-width: 641px) {
-    .sqs-cart-dropzone {
-        position: absolute;
-        top: 100px;
-        right: @mobilePadding;
-        width: auto;
-        max-width: 282px;
-        z-index: 999;
-    }
-}
-
 .category-nav,
 .folder-nav {
     .nav-section-label {
@@ -623,40 +611,6 @@ li.filter {
         width: ~"calc(100% - 255px)";
         display: inline-block;
         vertical-align: top;
-    }
-}
-
-@media only screen and (min-width: 641px) {
-    #header {
-        width: 100%;
-
-        #logoWrapper,
-        #headerNav {
-            .border-box;
-            display: table-cell;
-            vertical-align: middle;
-        }
-
-        #mainNavWrapper {
-            position: relative;
-            z-index: 1000;
-        }
-
-        #headerNav {
-            text-align: right;
-        }
-
-        #logoWrapper,
-        #logoImage {
-            width: @logoContainerWidth;
-        }
-
-        &.tweaking {
-            #logoWrapper,
-            #mainNavWrapper {
-                border:1px solid #14aaff;
-            }
-        }
     }
 }
 
@@ -1121,125 +1075,6 @@ body:not(.collection-type-gallery) {
 
     .subnav {
         background-color: fade(@headerBgColor, 100%);
-    }
-}
-
-@media only screen and (min-width: 641px) {
-    .show-on-scroll-wrapper #header {
-        position: fixed !important;
-        top: -20px;
-        left: 0;
-        width: 100%;
-        visibility: hidden;
-        opacity: 0;
-        background-color: @headerBgColor;
-        .translate3d(0);
-        .transition3(opacity 0.14s ease-in-out; visibility 0s 0.14s linear; top 0.14s ease-in-out);
-    }
-
-    .show-on-scroll-wrapper.show #header {
-        top: 0;
-        visibility: visible;
-        opacity: 1;
-        .transition3(opacity 0.14s ease-in-out; visibility 0s 0s linear; top 0.14s ease-in-out);
-    }
-
-    body:not(.force-mobile-nav) {
-        #headerNav {
-            white-space: nowrap;
-        }
-
-        .nav-wrapper {
-            position: relative;
-
-            nav > div {
-                display: inline-block;
-                vertical-align: middle;
-                margin: 0;
-
-                a,
-                .folder-toggle {
-                    .transition(color 0.1s 0s ease-in-out);
-                }
-
-                a,
-                .folder-toggle {
-                    display: block;
-                    padding: 0.75em 1em;
-                }
-
-                &:last-child {
-                    a,
-                    .folder-toggle {
-                        padding-right: 0;
-                    }
-                }
-            }
-
-            &#headerNav {
-                text-align: right;
-            }
-        }
-
-        #secondaryNavWrapper.nav-wrapper .folder .subnav {
-            top: auto;
-            bottom: 100%;
-            .transform-origin(0, 100%);
-        }
-    }
-
-    html:not(.touch-styles) body:not(.force-mobile-nav) .nav-wrapper {
-        .folder .subnav {
-            border: 1px solid #f7f7f7;
-            text-align: left;
-            padding: 1em 0;
-            display: inline-block;
-            position: absolute;
-            top: 100%;
-            left: -0.5em;
-            z-index: 1000;
-            font-size: @nav-font-font-size;
-            .border-box;
-            white-space: nowrap;
-            .scale(1, 0);
-            .transform-origin(0, 0);
-            -webkit-transition: -webkit-transform 0.14s 0s ease-in-out;
-            -moz-transition: -moz-transform 0.14s 0s ease-in-out;
-            -o-transition: -o-transform 0.14s 0s ease-in-out;
-            transition: transform 0.14s 0s ease-in-out;
-
-            > div {
-                opacity: 0;
-                padding: 0;
-                .transition(opacity 0.05s 0.0s ease-in-out);
-
-                a {
-                    display: block;
-                    padding: 0.5em 1.5em;
-                    -webkit-transform: translatez(0);
-                    -moz-transform: translatez(0);
-                    -ms-transform: translatez(0);
-                    -o-transform: translatez(0);
-                    transform: translatez(0);
-                }
-            }
-
-            &.right {
-                left: auto;
-                right: -.5em;
-            }
-        }
-
-        .folder:hover {
-            .subnav {
-                .scale(1, 1);
-
-                > div {
-                    opacity: 1;
-                    .transition(opacity 0.14s 0.14s ease-in-out);
-                }
-            }
-        }
     }
 }
 
