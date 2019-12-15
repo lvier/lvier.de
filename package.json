@@ -15,5 +15,8 @@
   "author": "Jean-Pierre Höhmann <jp@hhmn.de>",
   "license": "UNLICENSED",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "@squarespace/server": "^1.6.0"
+  }
 }
