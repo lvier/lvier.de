@@ -2,7 +2,7 @@
 # Files not to be tracked by version control.
 #
 # This file contains globs, to match files that git shall not be put under
-# version control, because they are either not part of Aldo, or are runtime
+# version control, because they are either not part of lvier.de, or are runtime
 # artifacts, like logs and caches.
 #
 
