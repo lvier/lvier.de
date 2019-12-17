@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "setup": "squarespace setup",
+    "clean": "squarespace clean -d dist",
     "build": "squarespace assemble -l -d src -o dist && webpack",
     "watch": "squarespace assemble -lwT -d src -o dist & webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
