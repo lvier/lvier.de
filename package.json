@@ -4,8 +4,13 @@
   "description": "Squarespace template for lvier.de",
   "main": "index.js",
   "scripts": {
+    "setup": "squarespace setup",
+    "build": "squarespace assemble && webpack",
+    "watch": "squarespace assemble -wT & webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "squarespace-server -A https://www.lvier.de"
+    "server": "squarespace runserver -T",
+    "start": "npm run setup && (npm run watch & npm run server)",
+    "deploy": "npm run setup && squarespace deploy"
   },
   "repository": {
     "type": "git",
