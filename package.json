@@ -6,8 +6,8 @@
   "scripts": {
     "setup": "squarespace setup",
     "clean": "squarespace clean -d dist",
-    "build": "squarespace assemble -l -d src -o dist && webpack",
-    "watch": "squarespace assemble -lwT -d src -o dist & webpack --watch",
+    "build": "squarespace assemble -d src -o dist && webpack",
+    "watch": "squarespace assemble -wT -d src -o dist & webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "squarespace runserver -T",
     "start": "npm run setup && (npm run watch & npm run server)",
