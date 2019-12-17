@@ -17,6 +17,7 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
-    "@squarespace/server": "^1.6.0"
+    "@squarespace/server": "^1.6.0",
+    "@squarespace/toolbelt": "^0.10.2"
   }
 }
