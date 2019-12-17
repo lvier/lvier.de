@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "setup": "squarespace setup",
-    "build": "squarespace assemble && webpack",
-    "watch": "squarespace assemble -wT & webpack --watch",
+    "build": "squarespace assemble -d src -o dist && webpack",
+    "watch": "squarespace assemble -wT -d src -o dist & webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "squarespace runserver -T",
     "start": "npm run setup && (npm run watch & npm run server)",
-    "deploy": "npm run setup && squarespace deploy"
+    "deploy": "npm run setup && squarespace deploy -d dist"
   },
   "repository": {
     "type": "git",
