@@ -20,6 +20,12 @@
 *.log
 
 #
+# Build artefacts
+#
+
+dist
+
+#
 # Npm
 #
 
