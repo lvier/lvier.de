@@ -26,7 +26,7 @@
         </p>
     </div>
     <noscript>
-        <div class='alert alert-danger' role='alert'>
+        <div class='alert' role='alert'>
             <p>
                 Da diese Liste dynamisch aus unserem RSS-feed generiert wird, benötigt diese Seite JavaScript. Bitte
                 aktiviere JavaScript in deinem Browser, oder verwende unsere
@@ -34,13 +34,13 @@
             </p>
         </div>
     </noscript>
-    <div id='fail-alert' class='hidden alert alert-fail' role='alert'>
+    <div id='fail-alert' class='hidden alert' role='alert'>
         <p>
             Die Liste der Predigten konnte nicht geladen werden. Bitte prüfe deine Internetverbindung, oder
             versuche es später erneut.
         </p>
     </div>
-    <div id='unsupported-alert' class='hidden alert alert-fail' role='alert'>
+    <div id='unsupported-alert' class='hidden alert' role='alert'>
         <p>
             Dein Browser unterstützt leider diese Seite nicht. Bitte verwende einen anderen Browser, oder sieh dir
             unsere Predigten über die <a class='alert-link' href='/predigten'>Archivseite</a> an.
