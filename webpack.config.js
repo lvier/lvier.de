@@ -1,5 +1,7 @@
 /*
  * Configuration for webpack.
+ *
+ * TODO Set mode dynamically.
  */
 
 // noinspection JSAnnotator
@@ -13,5 +15,6 @@ module.exports = {
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist/scripts')
-    }
+    },
+    mode: 'production'
 };
