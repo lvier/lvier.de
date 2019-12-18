@@ -484,10 +484,9 @@
 
 </body>
 
-<squarespace:script src='site-bundle.js' combo='false' />
-<squarespace:script src='script.js' combo='true' />
+<script src='scripts/main.js'></script>
 {.equal? collection.typeName "sermons"}
-<squarespace:script src='sermons.js' combo='true' />
+<script src='scripts/sermons.js'></script>
 {.end}
 {squarespace-footers}
 

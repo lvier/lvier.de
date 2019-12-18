@@ -6,6 +6,8 @@
  * TODO This is a stub
  */
 
+import './site-bundle';
+
 /*
  * Initial setup.
  */
