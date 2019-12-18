@@ -5,9 +5,10 @@
 
     This stylesheet will render the sermons from an itunes-compatible podcast RSS-feed.
 
-    FIXME This can't output in the correct namespace, since the input doesn't declare its, blocking the default one.
+    FIXME The XPaths can't be checked, because squarespace doesn't put the rss-elements in a namespace.
 -->
 
+<!--suppress XmlUnusedNamespaceDeclaration -->
 <xsl:stylesheet
         xmlns="http://www.rssboard.org/rss-specification"
         xmlns:xml="http://www.w3.org/XML/1998/namespace"
@@ -34,27 +35,34 @@
 
     <xsl:output method="html"/>
 
+    <!-- noinspection CheckNodeTest -->
     <xsl:template match="/rss">
         <html>
+            <!-- noinspection CheckNodeTest -->
             <xsl:apply-templates select="channel"/>
         </html>
     </xsl:template>
 
+    <!-- noinspection CheckNodeTest -->
     <xsl:template match="channel">
         <head>
             <title>
+                <!-- noinspection CheckNodeTest -->
                 <xsl:value-of select="title"/>
             </title>
         </head>
         <body>
+            <!-- noinspection CheckNodeTest -->
             <xsl:apply-templates select="item"/>
         </body>
     </xsl:template>
 
+    <!-- noinspection CheckNodeTest -->
     <xsl:template match="item">
         <xsl:if test="media:content">
             <a>
                 <xsl:attribute name="href">
+                    <!-- noinspection CheckNodeTest -->
                     <xsl:value-of select="link"/>
                 </xsl:attribute>
                 <h2>
@@ -63,12 +71,14 @@
                         <xsl:with-param
                                 name="date"
                                 select="substring(media:content/@url, string-length(media:content/@url) - 13, 10)"/>
+                        <!-- noinspection CheckNodeTest -->
                         <xsl:with-param name="fallback" select="pubDate"/>
                     </xsl:call-template>
                 </h2>
             </a>
             <details>
                 <summary>Predigttext</summary>
+                <!-- noinspection CheckNodeTest -->
                 <xsl:value-of select="description" disable-output-escaping="yes"/>
             </details>
             <div>
@@ -80,6 +90,7 @@
                     <xsl:value-of select="media:content/@type"/>
                 </xsl:attribute>
                 <xsl:attribute name="data-title">
+                    <!-- noinspection CheckNodeTest -->
                     <xsl:value-of select="title"/>
                 </xsl:attribute>
                 <xsl:attribute name="data-author">
@@ -143,7 +154,7 @@
         <xsl:variable name="hours" select="substring($duration, 1, 2)"/>
         <xsl:variable name="minutes" select="substring($duration, 4, 2)"/>
         <xsl:variable name="seconds" select="substring($duration, 7, 2)"/>
-        <xsl:variable name="duration-in-s" select="$hours * 3600 + $minutes * 60 + $seconds"/>
+        <xsl:variable name="duration-in-s" select="$hours * 3600 + $minutes * 60 + number($seconds)"/>
         <xsl:value-of select="$duration-in-s * 1000"/>
     </xsl:template>
 

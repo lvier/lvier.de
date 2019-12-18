@@ -2,6 +2,7 @@
  * Configuration for webpack.
  */
 
+// noinspection JSAnnotator
 const path = require('path');
 
 module.exports = {
@@ -11,6 +12,6 @@ module.exports = {
     },
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, 'dist/scripts'),
-    },
+        path: path.resolve(__dirname, 'dist/scripts')
+    }
 };

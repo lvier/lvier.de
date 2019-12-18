@@ -62,7 +62,7 @@
             ]]>
         </xs:documentation>
     </xs:annotation>
-    <xs:element name="sy" type="Syndication">
+    <xs:element name="sy" type="sy:Syndication">
         <xs:annotation>
             <xs:documentation>
                 <![CDATA[
@@ -107,7 +107,7 @@
         </xs:annotation>
         <xs:sequence>
             <xs:choice maxOccurs="unbounded">
-                <xs:element name="updatePeriod" type="UpdatePeriod" minOccurs="0" default="daily">
+                <xs:element name="updatePeriod" type="sy:UpdatePeriod" minOccurs="0" default="daily">
                     <xs:annotation>
                         <xs:documentation>
                             <![CDATA[
@@ -133,7 +133,7 @@
                         </xs:documentation>
                     </xs:annotation>
                 </xs:element>
-                <xs:element name="updateBase" type="W3cDateTimeFormat" minOccurs="0">
+                <xs:element name="updateBase" type="sy:W3cDateTimeFormat" minOccurs="0">
                     <xs:annotation>
                         <xs:documentation>
                             <![CDATA[
@@ -193,7 +193,7 @@
             </xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
-            <xs:pattern value="\d{4}\-\d{2}\-\d{2}T\d{2}:\d{2}" />
+            <xs:pattern value="\d{4}-\d{2}-\d{2}T\d{2}:\d{2}" />
         </xs:restriction>
     </xs:simpleType>
 </xs:schema>

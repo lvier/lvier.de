@@ -96,7 +96,10 @@
         <div class="entry-content">
             {.main-image?}
             <div class="excerpt-thumb">
-                <a href="{fullUrl}" class="excerpt-image content-fill"><img {@|image-meta} /></a>
+                <a href="{fullUrl}" class="excerpt-image content-fill">
+                    <!--suppress HtmlRequiredAltAttribute -->
+                    <img {@|image-meta} />
+                </a>
             </div>
             {.end}
             <div class="p-summary">{excerpt}</div>

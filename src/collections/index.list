@@ -38,6 +38,7 @@
                     data-content-field="main-image">
                 <div class="color-overlay"></div>
                 <figure id="thumbnail" class="loading content-fill">
+                    <!--suppress HtmlRequiredAltAttribute -->
                     <img {@|image-meta} />
                 </figure>
                 {.if description}

@@ -1249,11 +1249,13 @@ body:not(.collection-type-gallery) {
         right:0;
         z-index:9999;
         cursor: e-resize;
+        //noinspection SpellCheckingInspection
         .transform(translatex(-260px) translatez(0));
     }
 }
 
-#sidecarNav {
+#sidecarNav,
+.force-mobile-nav #mainNavWrapper {
     position: fixed;
     width: 260px;
     z-index: -1;
@@ -1265,6 +1267,9 @@ body:not(.collection-type-gallery) {
     text-align: left;
     overflow: auto;
     background-color: fade(@headerBgColor, 100%);
+}
+
+#sidecarNav {
     .font-smoothing(@headerBgColor);
     .border-box;
     .transition2(height 0s 0.14s linear, visibility 0s 0.14s linear);
@@ -1354,18 +1359,6 @@ body:not(.collection-type-gallery) {
     }
 
     #mainNavWrapper {
-        display: block;
-        position: fixed;
-        width: 260px;
-        z-index: -1;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        height: 100%;
-        line-height: 1em;
-        text-align: left;
-        overflow: auto;
-        background-color: fade(@headerBgColor, 100%);
         .border-box;
         -webkit-transform: translate3d(260px, 0, 0);
         -moz-transform: translate3d(260px, 0, 0);

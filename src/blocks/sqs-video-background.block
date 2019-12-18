@@ -12,6 +12,7 @@
         data-config-filter="{filter}"
         data-config-filter-strength="{filterStrength}">
     {.section videoFallbackContentItem}
+    <!--suppress HtmlRequiredAltAttribute -->
     <img {@|image-meta} class="custom-fallback-image" data-load="false" />
     {.end}
     <div id="player"></div>

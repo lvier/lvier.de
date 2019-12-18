@@ -19,6 +19,7 @@
         xml:lang='de'
         lang='de'>
 
+<!--suppress HtmlRequiredTitleElement -->
 <head>
     <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
     {.if template.mobileStylesEnabled}
@@ -132,7 +133,10 @@
                     {.main-image?}
                     <div class='banner-thumbnail-wrapper' data-content-field='main-image'>
                         <div class='color-overlay'></div>
-                        <figure id='thumbnail' class='loading content-fill'><img {@|image-meta} /></figure>
+                        <figure id='thumbnail' class='loading content-fill'>
+                            <!--suppress HtmlRequiredAltAttribute -->
+                            <img {@|image-meta} />
+                        </figure>
                     </div>
                     {.end}
                 </div>
@@ -141,7 +145,10 @@
                     {.main-image?}
                     <div class='banner-thumbnail-wrapper' data-content-field='main-image'>
                         <div class='color-overlay'></div>
-                        <figure id='thumbnail' class='loading content-fill'><img {@|image-meta} /></figure>
+                        <figure id='thumbnail' class='loading content-fill'>
+                            <!--suppress HtmlRequiredAltAttribute -->
+                            <img {@|image-meta} />
+                        </figure>
                         <div class='blog-item-wrapper'>
                             <div class='title-desc-wrapper'>
                                 <time
@@ -218,7 +225,10 @@
                         {.section mainImage}
                         <div>
                             <div class='color-overlay'></div>
-                            <figure id='thumbnail' class='loading content-fill'><img {@|image-meta} /></figure>
+                            <figure id='thumbnail' class='loading content-fill'>
+                                <!--suppress HtmlRequiredAltAttribute -->
+                                <img {@|image-meta} />
+                            </figure>
                         </div>
                         {.end}
                         {.if description}
@@ -273,6 +283,7 @@
                                             </div>
                                             <div class='color-overlay'></div>
                                             {.main-image?}
+                                            <!--suppress HtmlRequiredAltAttribute -->
                                             <img data-load='viewport' {@|image-meta}>
                                             {.end}
                                         </div>
@@ -327,6 +338,7 @@
                                             data-content-field='main-image'>
                                         <div class='color-overlay'></div>
                                         <figure id='thumbnail' class='loading content-fill'>
+                                            <!--suppress HtmlRequiredAltAttribute -->
                                             <img {@|image-meta} />
                                         </figure>
                                         {.if description}
@@ -368,6 +380,7 @@
                                 data-content-field='main-image'>
                             <div class='color-overlay'></div>
                             <figure id='thumbnail' class='loading content-fill'>
+                                <!--suppress HtmlRequiredAltAttribute -->
                                 <img {@|image-meta} />
                             </figure>
                             {.if description}
