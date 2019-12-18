@@ -25,9 +25,9 @@
         <xs:documentation>
             <![CDATA[
                 <p>
-                    This is the authoritative XML schema for the XML namespace http://www.lvier.de/assets/lvier.xhtml
-                    of the Evangelische Gemeinschaft Kassel e.V., since the namespace is currently unused, this file is
-                    a stub.
+                    This is the authoritative XML schema for the XML namespace
+                    <code>http://www.lvier.de/assets/lvier.xhtml</code> of the Evangelische Gemeinschaft Kassel e.V.,
+                    since the namespace is currently unused, this file is a stub.
                 </p>
             ]]>
         </xs:documentation>

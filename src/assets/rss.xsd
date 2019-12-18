@@ -1,0 +1,1235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+        xmlns="http://www.lvier.de/assets/lvier.xhtml"
+        xmlns:xml="http://www.w3.org/XML/1998/namespace"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:rss="http://www.rssboard.org/rss-specification"
+        xsi:schemaLocation="
+            http://www.lvier.de/assets/lvier.xhtml http://www.lvier.de/assets/lvier.xsd
+            http://www.w3.org/XML/1998/namespace http://www.w3.org/2001/xml.xsd
+            http://www.w3.org/2001/XMLSchema http://www.w3.org/2001/XMLSchema.xsd
+            http://www.w3.org/2001/XMLSchema-instance http://www.w3.org/2001/XMLSchema-instance.xsd
+            http://www.rssboard.org/rss-specification http://www.lvier.de/assets/rss.xsd"
+        xml:lang="en"
+        id="rss"
+        targetNamespace="http://www.rssboard.org/rss-specification"
+        elementFormDefault="qualified"
+        version="2.1">
+    <xs:annotation>
+        <xs:documentation>
+            <![CDATA[
+                <p>
+                    XML Schema for RSS feeds 2.0
+                </p>
+            ]]>
+        </xs:documentation>
+        <xs:documentation>
+            <![CDATA[
+                <p>
+                    This is based on the RSS 2.0.11 specification document defined by RSS Advisory Board
+                    (<a href="http://www.rssboard.org/rss-specification">http://www.rssboard.org/rss-specification</a>).
+                </p>
+            ]]>
+        </xs:documentation>
+        <xs:documentation>
+            <![CDATA[
+                <p>
+                    URL: <a href="http://feed-schemata.aliencube.org">http://feed-schemata.aliencube.org</a>
+                </p>
+            ]]>
+        </xs:documentation>
+        <xs:documentation>
+            <![CDATA[
+                <p>
+                    Author: Aliencube Community
+                </p>
+            ]]>
+        </xs:documentation>
+        <xs:documentation>
+            <![CDATA[
+                <p>
+                    Issues: Any issue related this can be raised here
+                    (<a href="http://github.com/aliencube/Feed-Schemata/issues"><!--
+                    -->http://github.com/aliencube/Feed-Schemata/issues</a>).
+                </p>
+            ]]>
+        </xs:documentation>
+        <xs:documentation>
+            <![CDATA[
+                <p>
+                    License: This is released under MIT License
+                    (<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a>).
+                </p>
+            ]]>
+        </xs:documentation>
+        <xs:documentation>
+            <![CDATA[
+                <p>
+                    Acknowledgement: This is inspired by RSS 2.0 Schema
+                    (<a href="http://rss2schema.codeplex.com">http://rss2schema.codeplex.com</a>).
+                </p>
+            ]]>
+        </xs:documentation>
+    </xs:annotation>
+    <xs:element name="rss" type="rss:Rss">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                    <p>
+                        Defines the root element of the RSS feed.
+                    </p>
+                ]]>
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+
+    <xs:complexType name="Rss">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                    <p>
+                        Defines the root element of the RSS feed.
+                    </p>
+                ]]>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="channel" type="rss:Channel">
+                <xs:annotation>
+                    <xs:documentation>
+                        <![CDATA[
+                            <p>
+                                Defines the channel element of the RSS feed.
+                            </p>
+                        ]]>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="version" type="xs:decimal" use="required" fixed="2.0">
+            <xs:annotation>
+                <xs:documentation>
+                    <![CDATA[
+                        <p>
+                            Defines the version of the RSS feed.
+                        </p>
+                    ]]>
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:anyAttribute namespace="##any">
+            <xs:annotation>
+                <xs:documentation>
+                    <![CDATA[
+                        <p>
+                            Extensibility attribute to define additional namespaces.
+                        </p>
+                    ]]>
+                </xs:documentation>
+            </xs:annotation>
+        </xs:anyAttribute>
+    </xs:complexType>
+    <xs:complexType name="Channel">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                    <p>
+                        Defines the channel element of the RSS feed.
+                    </p>
+                ]]>
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:sequence>
+            <xs:choice maxOccurs="unbounded">
+                <!-- Required elements -->
+                <xs:element name="title" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    The name of the channel. It's how people refer to your service. If you have an HTML
+                                    website that contains the same information as your RSS file, the title of your
+                                    channel should be the same as the title of your website.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Example:
+                                    <code>
+                                        <pre>GoUpstate.com News Headlines</pre>
+                                    </code>
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="link" type="xs:anyURI">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    The URL to the HTML website corresponding to the channel.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Example:
+                                    <code>
+                                        <pre>http://www.goupstate.com/</pre>
+                                    </code>
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="description" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Phrase or sentence describing the channel.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Example:
+                                    <code>
+                                        The latest news from GoUpstate.com, a Spartanburg Herald-Journal Web site.
+                                    </code>
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+
+                <!-- Optional elements -->
+                <xs:element name="language" type="xs:language" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    The language the channel is written in. This allows aggregators to group all
+                                    Italian language sites, for example, on a single page. A list of allowable values
+                                    for this element, as provided by Netscape, is
+                                    <a href="http://www.rssboard.org/rss-language-codes">here</a>. You may also use
+                                    <a href="http://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes"><!--
+                                    -->values defined</a> by the W3C.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Example:
+                                    <code>en-us</code>
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="copyright" type="xs:string" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Copyright notice for content in the channel.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Example:
+                                    <code>Copyright 2002, Spartanburg Herald-Journal</code>
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="managingEditor" type="rss:EmailAddress" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Email address for person responsible for editorial content.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Example:
+                                    <code>geo@herald.com (George Matesky)</code>
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="webMaster" type="rss:EmailAddress" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Email address for person responsible for technical issues relating to channel.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Example:
+                                    <code>betty@herald.com (Betty Guernsey)</code>
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="pubDate" type="rss:Rfc822DateTimeFormat" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    The publication date for the content in the channel. All date-times in RSS conform
+                                    to the Date and Time Specification of
+                                    <a href="http://asg.web.cmu.edu/rfc/rfc822.html">RFC 822</a>, with the exception
+                                    that the year may be expressed with two characters or four characters (four
+                                    preferred).
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Example:
+                                    <code>Sat, 07 Sep 2002 00:00:01 GMT</code>
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="lastBuildDate" type="rss:Rfc822DateTimeFormat" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    The last time the content of the channel changed.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Example:
+                                    <code>Sat, 07 Sep 2002 09:42:31 GMT</code>
+                                <p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="category" type="rss:Category" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Specify one or more categories that the channel belongs to. Follows the same rules
+                                    as the &lt;item&gt;-level
+                                    <a href="http://www.rssboard.org/rss-specification#ltcategorygtSubelementOfLtitemgt"><!--
+                                    -->category</a> element. More
+                                    <a href="http://www.rssboard.org/rss-specification#syndic8">info</a>.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Example:
+                                    <code>&lt;category&gt;Newspapers&lt;/category&gt;</code>
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="generator" type="xs:string" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    A string indicating the program used to generate the channel.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Example:
+                                    <code>MightyInHouse Content System v2.3</code>
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="docs" type="xs:anyURI" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    A URL that points to the
+                                    <a href="http://www.rssboard.org/rss-specification">documentation</a> for the
+                                    format used in the RSS file. It's probably a pointer to this page. It's for people
+                                    who might stumble across an RSS file on a Web server 25 years from now and wonder
+                                    what it is.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Example:
+                                    <code>http://www.rssboard.org/rss-specification</code>
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="cloud" type="rss:Cloud" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Allows processes to register with a cloud to be notified of updates to the channel,
+                                    implementing a lightweight publish-subscribe protocol for RSS feeds. More info
+                                    <a href="http://www.rssboard.org/rss-specification#ltcloudgtSubelementOfLtchannelgt"><!--
+                                    -->here</a>.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Example:
+                                    <code>
+                                        &lt;cloud domain="rpc.sys.com" port="80" path="/RPC2"
+                                        registerProcedure="pingMe" protocol="soap"/&gt;
+                                    </code>
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="ttl" type="xs:nonNegativeInteger" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    TTL stands for time to live. It's a number of minutes that indicates how long a
+                                    channel can be cached before refreshing from the source. More info
+                                    <a href="http://www.rssboard.org/rss-specification#ltttlgtSubelementOfLtchannelgt"><!--
+                                    -->here</a>.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Example:
+                                    <code>&lt;ttl&gt;60&lt;/ttl&gt;</code>
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="image" type="rss:Image" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Specifies a GIF, JPEG or PNG image that can be displayed with the channel. More
+                                    info
+                                    <a href="http://www.rssboard.org/rss-specification#ltimagegtSubelementOfLtchannelgt"><!--
+                                    here</a>.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="rating" type="xs:string" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    The <a href="http://www.w3.org/PICS/">PICS</a> rating for the channel.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="textInput" type="rss:TextInput" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Specifies a text input box that can be displayed with the channel. More info
+                                    <a href="http://www.rssboard.org/rss-specification#lttextinputgtSubelementOfLtchannelgt"><!--
+                                    -->here</a>.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="skipHours" type="rss:SkipHoursList" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    A hint for aggregators telling them which hours they can skip. This element
+                                    contains up to 24 &lt;hour&gt; sub-elements whose value is a number between 0 and
+                                    23, representing a time in GMT, when aggregators, if they support the feature, may
+                                    not read the channel on hours listed in the &lt;skipHours&gt; element. The hour
+                                    beginning at midnight is hour zero.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="skipDays" type="rss:SkipDaysList" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    A hint for aggregators telling them which days they can skip. This element contains
+                                    up to seven &lt;day&gt; sub-elements whose value is Monday, Tuesday, Wednesday,
+                                    Thursday, Friday, Saturday or Sunday. Aggregators may not read the channel during
+                                    days listed in the &lt;skipDays&gt; element.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+
+                <!-- Extensible elements -->
+                <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Extensibility element.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:any>
+            </xs:choice>
+
+            <xs:element name="item" type="rss:Item" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+
+        <xs:anyAttribute namespace="##any">
+            <xs:annotation>
+                <xs:documentation>
+                    <![CDATA[
+                        <p>
+                            Extensibility attribute to define namespaced ones.
+                        </p>
+                    ]]>
+                </xs:documentation>
+            </xs:annotation>
+        </xs:anyAttribute>
+    </xs:complexType>
+
+    <xs:complexType name="Image">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                    <p>
+                        Is an optional sub-element of &lt;channel&gt;, which contains three required and three optional
+                        sub-elements.
+                    </p>
+                ]]>
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:sequence>
+            <xs:choice maxOccurs="unbounded">
+                <!-- Required elements -->
+                <xs:element name="url" type="xs:anyURI">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Is the URL of a GIF, JPEG or PNG image that represents the channel.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="title" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Describes the image, it's used in the ALT attribute of the HTML &lt;img&gt; tag
+                                    when the channel is rendered in HTML.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="link" type="xs:anyURI">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Is the URL of the site, when the channel is rendered, the image is a link to the
+                                    site. (Note, in practice the image &lt;title&gt; and &lt;link&gt; should have the
+                                    same value as the channel's &lt;title&gt; and &lt;link&gt;.)
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+
+                <!-- Optional elements -->
+                <xs:element name="width" type="rss:ImageWidth" default="88" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Indicates the width of the image in pixels.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Maximum value for width is 144.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="height" type="rss:ImageHeight" default="31" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Indicates the height of the image in pixels.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Maximum value for width is 400.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="description" type="xs:string" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Text that is included in the TITLE attribute of the link formed around the image in
+                                    the HTML rendering.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="ImageWidth">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                    <p>
+                        Indicates the height of the image in pixels.
+                    </p>
+                ]]>
+            </xs:documentation>
+            <xs:documentation>
+                <![CDATA[
+                    <p>
+                        Maximum value for width is 144.
+                    </p>
+                ]]>
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:restriction base="xs:positiveInteger">
+            <xs:maxInclusive value="144" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="ImageHeight">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                    <p>
+                        Indicates the width of the image in pixels.
+                    </p>
+                ]]>
+            </xs:documentation>
+            <xs:documentation>
+                <![CDATA[
+                    <p>
+                        Maximum value for width is 400.
+                    </p>
+                ]]>
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:restriction base="xs:positiveInteger">
+            <xs:maxInclusive value="400" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="Cloud">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                    <p>
+                        Specifies a web service that supports the rssCloud interface which can be implemented in
+                        HTTP-POST, XML-RPC or SOAP 1.1. Its purpose is to allow processes to register with a cloud to
+                        be notified of updates to the channel, implementing a lightweight publish-subscribe protocol
+                        for RSS feeds.
+                    </p>
+                ]]>
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:attribute name="domain" type="xs:string" use="required" />
+        <xs:attribute name="port" type="xs:positiveInteger" use="required" />
+        <xs:attribute name="path" type="xs:string" use="required" />
+        <xs:attribute name="registerProcedure" type="xs:string" use="required" />
+        <xs:attribute name="protocol" type="rss:CloudProtocol" use="required" />
+    </xs:complexType>
+
+    <xs:simpleType name="CloudProtocol">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                    <p>
+                        Specifies the web service protocol for rssCloud interface.
+                    </p>
+                ]]>
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="xml-rpc" />
+            <xs:enumeration value="http-post" />
+            <xs:enumeration value="soap" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="TextInput">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                    <p>
+                        The purpose of this element is something of a mystery! You can use it to specify a search
+                        engine box. Or to allow a reader to provide feedback. Most aggregators ignore it.
+                    </p>
+                ]]>
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:sequence>
+            <xs:choice maxOccurs="unbounded">
+                <!-- Required elements -->
+                <xs:element name="title" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    The label of the Submit button in the text input area.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="description" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Explains the text input area.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="name" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    The name of the text object in the text input area.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="link" type="xs:anyURI">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    The URL of the CGI script that processes text input requests.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="SkipHoursList">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                    <p>
+                        A hint for aggregators telling them which hours they can skip. This element contains up to
+                        24 &lt;hour&gt; sub-elements whose value is a number between 0 and 23, representing a time in
+                        GMT, when aggregators, if they support the feature, may not read the channel on hours listed in
+                        the &lt;skipHours&gt; element. The hour beginning at midnight is hour zero.
+                    </p>
+                ]]>
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:sequence>
+            <xs:element name="hour" type="rss:SkipHour" minOccurs="0" maxOccurs="24" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="SkipHour">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                    <p>
+                        A hint for aggregators telling them which hours they can skip. This element contains up to
+                        24 &lt;hour&gt; sub-elements whose value is a number between 0 and 23, representing a time in
+                        GMT, when aggregators, if they support the feature, may not read the channel on hours listed in
+                        the &lt;skipHours&gt; element. The hour beginning at midnight is hour zero.
+                    </p>
+                ]]>
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:restriction base="xs:nonNegativeInteger">
+            <xs:minInclusive value="0" />
+            <xs:maxInclusive value="23" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="SkipDaysList">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                    <p>
+                        A hint for aggregators telling them which days they can skip. This element contains up to seven
+                        &lt;day&gt; sub-elements whose value is Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
+                        or Sunday. Aggregators may not read the channel during days listed in the &lt;skipDays&gt;
+                        element.
+                    </p>
+                ]]>
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:sequence>
+            <xs:element name="day" type="rss:SkipDay" minOccurs="0" maxOccurs="7" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="SkipDay">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                    <p>
+                        A hint for aggregators telling them which days they can skip. This element contains up to seven
+                        &lt;day&gt; sub-elements whose value is Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
+                        or Sunday. Aggregators may not read the channel during days listed in the &lt;skipDays&gt;
+                        element.
+                    </p>
+                ]]>
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Monday" />
+            <xs:enumeration value="Tuesday" />
+            <xs:enumeration value="Wednesday" />
+            <xs:enumeration value="Thursday" />
+            <xs:enumeration value="Friday" />
+            <xs:enumeration value="Saturday" />
+            <xs:enumeration value="Sunday" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="Item">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                    <p>
+                        A channel may contain any number of &lt;item&gt;s. An item may represent a "story" -- much like
+                        a story in a newspaper or magazine; if so its description is a synopsis of the story, and the
+                        link points to the full story. An item may also be complete in itself, if so, the description
+                        contains the text (entity-encoded HTML is allowed; see
+                        <a href="http://www.rssboard.org/rss-encoding-examples">examles</a>), and the link and title
+                        may be omitted. All elements of an item are optional, however at least one of title or
+                        description must be present.
+                    </p>
+                ]]>
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:sequence>
+            <xs:choice maxOccurs="unbounded">
+                <!-- Required elements -->
+                <xs:element name="title" type="xs:string" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    The title of the item.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Example:
+                                    <code>Venice Film Festival Tries to Quit Sinking</code>
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="link" type="xs:anyURI" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    The URL of the item.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Example:
+                                    <code>http://nytimes.com/2004/12/07FEST.html</code>
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="description" type="xs:string" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    The item synopsis.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Example:
+                                    <code>
+                                        &lt;description&gt;Some of the most heated chatter at the Venice Film Festival
+                                        this week was about the way that the arrival of the stars at the Palazzo del
+                                        Cinema was being staged.&lt;/description&gt;
+                                    </code>
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+
+                <!-- Optional elements -->
+                <xs:element name="author" type="rss:EmailAddress" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Email address of the author of the item.
+                                    <a href="http://www.rssboard.org/rss-specification#ltauthorgtSubelementOfLtitemgt"><!--
+                                    -->More</a>.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="category" type="rss:Category" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Includes the item in one or more categories.
+                                    <a href="http://www.rssboard.org/rss-specification#ltcategorygtSubelementOfLtitemgt"><!--
+                                    -->More</a>.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="comments" type="xs:anyURI" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    URL of a page for comments relating to the item.
+                                    <a href="http://www.rssboard.org/rss-specification#ltcommentsgtSubelementOfLtitemgt"><!--
+                                    -->More</a>.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="enclosure" type="rss:Enclosure" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Describes a media object that is attached to the item.
+                                    <a href="http://www.rssboard.org/rss-specification#ltenclosuregtSubelementOfLtitemgt"><!--
+                                    -->More</a>.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="guid" type="rss:Guid" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Guid or permalink URL for this entry.
+                                    <a href="http://www.rssboard.org/rss-specification#ltguidgtSubelementOfLtitemgt"><!--
+                                    -->More</a>.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="pubDate" type="rss:Rfc822DateTimeFormat" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Indicates when the item was published.
+                                    <a href="http://www.rssboard.org/rss-specification#ltpubdategtSubelementOfLtitemgt"><!--
+                                    -->More</a>.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="source" type="rss:Source" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    The RSS channel that the item came from.
+                                    <a href="http://www.rssboard.org/rss-specification#ltsourcegtSubelementOfLtitemgt"><!--
+                                    -->More</a>.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+
+                <!-- Extensible elements -->
+                <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Extensibility element.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:any>
+            </xs:choice>
+        </xs:sequence>
+
+        <xs:anyAttribute namespace="##any">
+            <xs:annotation>
+                <xs:documentation>
+                    <![CDATA[
+                        <p>
+                            Extensibility attribute to define namespaced ones.
+                        </p>
+                    ]]>
+                </xs:documentation>
+            </xs:annotation>
+        </xs:anyAttribute>
+    </xs:complexType>
+
+    <xs:complexType name="Source">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                    <p>
+                        The RSS channel that the item came from.
+                        <a href="http://www.rssboard.org/rss-specification#ltsourcegtSubelementOfLtitemgt">More</a>.
+                    </p>
+                ]]>
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="url" type="xs:anyURI" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="Enclosure">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                    <p>
+                        Describes a media object that is attached to the item.
+                        <a href="http://www.rssboard.org/rss-specification#ltenclosuregtSubelementOfLtitemgt">More</a>.
+                    </p>
+                ]]>
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="url" type="xs:anyURI" use="required">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    URL where the enclosure is located.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="length" type="xs:nonNegativeInteger" use="required">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Size in bytes.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="type" type="xs:string" use="required">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    MIME media-type of the enclosure.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="Category">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                    <p>
+                        Includes the item in one or more categories.
+                    </p>
+                ]]>
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="domain" type="xs:string" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="Guid">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                    <p>
+                        Guid or permalink URL for this entry.
+                    </p>
+                ]]>
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="isPermaLink" type="xs:boolean" default="true" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:simpleType name="EmailAddress">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                    <p>
+                        Using the regexp definiton of E-Mail Address by Lucadean from the .NET RegExp Pattern
+                        Repository at
+                        <a href="http://www.3leaf.com/default/NetRegExpRepository.aspx"><!--
+                        -->http://www.3leaf.com/default/NetRegExpRepository.aspx</a>
+                    </p>
+                ]]>
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([a-zA-Z0-9_\-])([a-zA-Z0-9_\-.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="Rfc822DateTimeFormat">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                    <p>
+                        A date-time displayed in RFC-822 format.
+                    </p>
+                ]]>
+            </xs:documentation>
+            <xs:documentation>
+                <![CDATA[
+                    <p>
+                        Using the regexp definiton of rfc-822 date by Sam Ruby at
+                        <a href="http://www.intertwingly.net/blog/1360.html"><!--
+                        -->http://www.intertwingly.net/blog/1360.html</a>.
+                    </p>
+                ]]>
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(((Mon)|(Tue)|(Wed)|(Thu)|(Fri)|(Sat)|(Sun)), *)?\d\d? +((Jan)|(Feb)|(Mar)|(Apr)|(May)|(Jun)|(Jul)|(Aug)|(Sep)|(Oct)|(Nov)|(Dec)) +\d\d(\d\d)? +\d\d:\d\d(:\d\d)? +(([+\-]?\d\d\d\d)|(UT)|(GMT)|(EST)|(EDT)|(CST)|(CDT)|(MST)|(MDT)|(PST)|(PDT)|\w)" />
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

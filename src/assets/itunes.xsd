@@ -28,14 +28,16 @@
             <![CDATA[
                 <p>
                     If you need to use this, you should read the specs at
-                    http://www.apple.com/itunes/store/podcaststechspecs.html
+                    <a href="http://itunespartner.apple.com/podcasts/">http://itunespartner.apple.com/podcasts/</a>
                 </p>
             ]]>
         </xs:documentation>
         <xs:documentation>
             <![CDATA[
                 <p>
-                    Adapted from https://github.com/podlove/podlove-validator/blob/master/resources/xsd/itunes.xsd.
+                    Adapted from
+                    <a href="http://github.com/podlove/podlove-validator/blob/master/resources/xsd/itunes.xsd"><!--
+                    -->http://github.com/podlove/podlove-validator/blob/master/resources/xsd/itunes.xsd</a>.
                 </p>
             ]]>
         </xs:documentation>
@@ -49,7 +51,8 @@
         <xs:documentation>
             <![CDATA[
                 <p>
-                    This file is released under the MIT license (http://opensource.org/licenses/MIT).
+                    This file is released under the MIT license
+                    (<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a>).
                 </p>
             ]]>
         </xs:documentation>
