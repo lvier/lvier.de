@@ -26,7 +26,7 @@
             try {
                 // Load the xslt.
                 var request = new XMLHttpRequest();
-                request.open("GET", "/assets/sermons.xsl", false);
+                request.open("GET", "/assets/sermons.xslt", false);
                 request.send(null);
 
                 xsltStylesheet = request.responseXML;
@@ -47,7 +47,7 @@
             }
 
             dom = fragment;
-        };
+        }
 
         document.getElementById('spinner').classList.add('hidden');
         if (dom) {

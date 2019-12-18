@@ -1,24 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<!--
-    XML schema definition for L4's Squarespace namespace
-
-    This is an XML schema for the XML namespace http://www.lvier.de/assets/squarespace.xhtml of the Evangelische
-    Gemeinschaft Kassel e.V., since this schema describes Tags, that are proprietary to Squarespace and lack in
-    documentation this schema is not authoritative and may or may not be correct or complete.
--->
-
 <xs:schema
         xmlns="http://www.lvier.de/assets/lvier.xhtml"
+        xmlns:xml="http://www.w3.org/XML/1998/namespace"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:squarespace="http://www.lvier.de/assets/squarespace.xhtml"
         xsi:schemaLocation="
-            http://www.lvier.de/assets/lvier.xhtml
-            http://www.lvier.de/assets/lvier.xsd
-            http://www.w3.org/2001/XMLSchema
-            http://www.w3.org/2001/XMLSchema.xsd"
+            http://www.lvier.de/assets/lvier.xhtml http://www.lvier.de/assets/lvier.xsd
+            http://www.w3.org/XML/1998/namespace http://www.w3.org/2001/xml.xsd
+            http://www.w3.org/2001/XMLSchema http://www.w3.org/2001/XMLSchema.xsd
+            http://www.w3.org/2001/XMLSchema-instance http://www.w3.org/2001/XMLSchema-instance.xsd
+            http://www.lvier.de/assets/squarespace.xhtml http://www.lvier.de/assets/squarespace.xsd"
+        xml:lang="en"
+        id="squarespace"
         targetNamespace="http://www.lvier.de/assets/squarespace.xhtml"
-        elementFormDefault="qualified">
+        elementFormDefault="qualified"
+        version="1.1">
+    <xs:annotation>
+        <xs:documentation>
+            <![CDATA[
+                <p>
+                    XML schema definition for L4's Squarespace namespace.
+                </p>
+            ]]>
+        </xs:documentation>
+        <xs:documentation>
+            <![CDATA[
+                <p>
+                    This is an XML schema for the XML namespace http://www.lvier.de/assets/squarespace.xhtml of the
+                    Evangelische Gemeinschaft Kassel e.V., since this schema describes Tags, that are proprietary to
+                    Squarespace and lack in documentation this schema is not only woefully undocumented, but also not
+                    authoritative and may or may not be correct or complete.
+                </p>
+            ]]>
+        </xs:documentation>
+    </xs:annotation>
     <xs:element name="block-field">
         <xs:complexType>
             <xs:attribute name="id" type="xs:ID" use="required"/>

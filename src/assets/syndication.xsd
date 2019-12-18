@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+        xmlns="http://www.lvier.de/assets/lvier.xhtml"
+        xmlns:xml="http://www.w3.org/XML/1998/namespace"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+        xsi:schemaLocation="
+            http://www.lvier.de/assets/lvier.xhtml http://www.lvier.de/assets/lvier.xsd
+            http://www.w3.org/XML/1998/namespace http://www.w3.org/2001/xml.xsd
+            http://www.w3.org/2001/XMLSchema http://www.w3.org/2001/XMLSchema.xsd
+            http://www.w3.org/2001/XMLSchema-instance http://www.w3.org/2001/XMLSchema-instance.xsd
+            http://purl.org/rss/1.0/modules/syndication/ http://www.lvier.de/assets/syndication.xsd"
+        xml:lang="en"
+        id="syndication"
+        targetNamespace="http://purl.org/rss/1.0/modules/syndication/"
+        elementFormDefault="qualified"
+        version="1.1">
+    <xs:annotation>
+        <xs:documentation>
+            <![CDATA[
+                <p>
+                    XML Schema for RSS feeds 1.0.
+                </p>
+            ]]>
+        </xs:documentation>
+        <xs:documentation>
+            <![CDATA[
+                <p>
+                    This is based on the RDF Site Summary 1.0 specification document defined by RSS-DEV Working Group
+                    (http://web.resource.org/rss/1.0/modules/syndication/).
+                </p>
+            ]]>
+        </xs:documentation>
+        <xs:documentation>
+            <![CDATA[
+                <p>
+                    URL: http://feed-schemata.aliencube.org
+                </p>
+            ]]>
+        </xs:documentation>
+        <xs:documentation>
+            <![CDATA[
+                <p>
+                    Author: Aliencube Community
+                </p>
+            ]]>
+        </xs:documentation>
+        <xs:documentation>
+            <![CDATA[
+                <p>
+                    Issues: Any issue related this can be raised here
+                    (https://github.com/aliencube/Feed-Schemata/issues).
+                </p>
+            ]]>
+        </xs:documentation>
+        <xs:documentation>
+            <![CDATA[
+                <p>
+                    License: This is released under MIT License (http://opensource.org/licenses/MIT).
+                </p>
+            ]]>
+        </xs:documentation>
+    </xs:annotation>
+    <xs:element name="sy" type="Syndication">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                    <p>
+                        Provides syndication hints to aggregators and others picking up this RDF Site Summary (RSS)
+                        feed regarding how often it is updated. For example, if you updated your file twice an hour,
+                        updatePeriod would be "hourly" and updateFrequency would be "2". The syndication module borrows
+                        from Ian Davis's [Open Content Syndication (OCS)](http://internetalchemy.org/ocs/) directory
+                        format. It supercedes the RSS 0.91 skipDay and skipHour elements.
+                    </p>
+                ]]>
+            </xs:documentation>
+            <xs:documentation>
+                <![CDATA[
+                    <p>
+                        Namespace declaration: xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+                    </p>
+                ]]>
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="Syndication">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                    <p>
+                        Provides syndication hints to aggregators and others picking up this RDF Site Summary (RSS)
+                        feed regarding how often it is updated. For example, if you updated your file twice an hour,
+                        updatePeriod would be "hourly" and updateFrequency would be "2". The syndication module borrows
+                        from Ian Davis's [Open Content Syndication (OCS)](http://internetalchemy.org/ocs/) directory
+                        format. It supercedes the RSS 0.91 skipDay and skipHour elements.
+                    </p>
+                ]]>
+            </xs:documentation>
+            <xs:documentation>
+                <![CDATA[
+                    <p>
+                        Namespace declaration: xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+                    </p>
+                ]]>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:choice maxOccurs="unbounded">
+                <xs:element name="updatePeriod" type="UpdatePeriod" minOccurs="0" default="daily">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Describes the period over which the channel format is updated. Acceptable values
+                                    are: hourly, daily, weekly, monthly, yearly. If omitted, daily is assumed.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="updateFrequency" type="xs:positiveInteger" minOccurs="0" default="1">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Used to describe the frequency of updates in relation to the update period. A
+                                    positive integer indicates how many times in that period the channel is updated.
+                                    For example, an updatePeriod of daily, and an updateFrequency of 2 indicates the
+                                    channel format is updated twice daily. If omitted a value of 1 is assumed.
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="updateBase" type="W3cDateTimeFormat" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    Defines a base date to be used in concert with updatePeriod and updateFrequency to
+                                    calculate the publishing schedule. The date format takes the form: yyyy-mm-ddThh:mm
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                        <xs:documentation>
+                            <![CDATA[
+                                <p>
+                                    DateTime format is refered to W3C (http://www.w3.org/TR/NOTE-datetime).
+                                </p>
+                            ]]>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="UpdatePeriod">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                    <p>
+                        Describes the period over which the channel format is updated. Acceptable values are: hourly,
+                        daily, weekly, monthly, yearly. If omitted, daily is assumed.
+                    </p>
+                ]]>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="hourly" />
+            <xs:enumeration value="daily" />
+            <xs:enumeration value="weekly" />
+            <xs:enumeration value="monthly" />
+            <xs:enumeration value="yearly" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="W3cDateTimeFormat">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                    <p>
+                        Defines a base date to be used in concert with updatePeriod and updateFrequency to calculate
+                        the publishing schedule. The date format takes the form: yyyy-mm-ddThh:mm
+                    </p>
+                ]]>
+            </xs:documentation>
+            <xs:documentation>
+                <![CDATA[
+                    <p>
+                        DateTime format is refered to W3C (http://www.w3.org/TR/NOTE-datetime).
+                    </p>
+                ]]>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{4}\-\d{2}\-\d{2}T\d{2}:\d{2}" />
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

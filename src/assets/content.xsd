@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+        xmlns="http://www.lvier.de/assets/lvier.xhtml"
+        xmlns:xml="http://www.w3.org/XML/1998/namespace"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:content="http://purl.org/rss/1.0/modules/content/"
+        xsi:schemaLocation="
+            http://www.lvier.de/assets/lvier.xhtml http://www.lvier.de/assets/lvier.xsd
+            http://www.w3.org/XML/1998/namespace http://www.w3.org/2001/xml.xsd
+            http://www.w3.org/2001/XMLSchema http://www.w3.org/2001/XMLSchema.xsd
+            http://www.w3.org/2001/XMLSchema-instance http://www.w3.org/2001/XMLSchema-instance.xsd
+            http://purl.org/rss/1.0/modules/content/ http://www.lvier.de/assets/content.xsd"
+        xml:lang="en"
+        id="content"
+        targetNamespace="http://purl.org/rss/1.0/modules/content/"
+        elementFormDefault="qualified"
+        version="1.1">
+    <xs:annotation>
+        <xs:documentation>
+            <![CDATA[
+                <p>
+                    XML Schema for RSS feeds 1.0
+                </p>
+            ]]>
+        </xs:documentation>
+        <xs:documentation>
+            <![CDATA[
+                <p>
+                    This is based on the RDF Site Summary 1.0 specification document defined by RSS-DEV Working Group
+                    (http://web.resource.org/rss/1.0/modules/content/).
+                </p>
+            ]]>
+        </xs:documentation>
+        <xs:documentation>
+            <![CDATA[
+                <p>
+                    URL: http://feed-schemata.aliencube.org
+                </p>
+            ]]>
+        </xs:documentation>
+        <xs:documentation>
+            <![CDATA[
+                <p>
+                    Author: Aliencube Community
+                </p>
+            ]]>
+        </xs:documentation>
+        <xs:documentation>
+            <![CDATA[
+                <p>
+                    Issues: Any issue related this can be raised here
+                    (https://github.com/aliencube/Feed-Schemata/issues).
+                </p>
+            ]]>
+        </xs:documentation>
+        <xs:documentation>
+            <![CDATA[
+                <p>
+                    License: This is released under MIT License (http://opensource.org/licenses/MIT).
+                </p>
+            ]]>
+        </xs:documentation>
+    </xs:annotation>
+    <xs:element name="content" type="content:Content">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                    <p>
+                        A module for the actual content of websites, in multiple formats.
+                    </p>
+                ]]>
+            </xs:documentation>
+            <xs:documentation>
+                <![CDATA[
+                    <p>
+                        Namespace declaration: xmlns:content="http://purl.org/rss/1.0/modules/content/"
+                    </p>
+                ]]>
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="Content">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                    <p>
+                        A module for the actual content of websites, in multiple formats.
+                    </p>
+                ]]>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="encoded" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        <![CDATA[
+                            <p>
+                                An element whose contents are the entity-encoded or CDATA-escaped version of the
+                                content of the item.
+                            </p>
+                        ]]>
+                    </xs:documentation>
+                    <xs:documentation>
+                        <![CDATA[
+                            Example:
+                            <pre>&lt;content:encoded&gt;&lt;![CDATA[&lt;p&gt;What a &lt;em&gt;beautiful&lt;/em&gt; day!&lt;/p&gt;]]&gt;&lt;/content:encoded&gt;</pre>
+                        ]]>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

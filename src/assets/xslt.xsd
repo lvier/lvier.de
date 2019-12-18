@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+        xmlns="http://www.lvier.de/assets/lvier.xhtml"
+        xmlns:xml="http://www.w3.org/XML/1998/namespace"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:xs="http://www.w3.org/2000/10/XMLSchema"
+        xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+        xsi:schemaLocation="
+            http://www.lvier.de/assets/lvier.xhtml http://www.lvier.de/assets/lvier.xsd
+            http://www.w3.org/XML/1998/namespace http://www.w3.org/2001/xml.xsd
+            http://www.w3.org/1999/XSL/Transform http://www.lvier.de/assets/xslt.xsd
+            http://www.w3.org/2001/XMLSchema-instance http://www.w3.org/2001/XMLSchema-instance.xsd
+            http://www.w3.org/2000/10/XMLSchema https://www.w3.org/2000/10/XMLSchema.xsd"
+        xml:lang="en"
+        id="xslt"
+        targetNamespace="http://www.w3.org/1999/XSL/Transform"
+        elementFormDefault="qualified"
+        version="1.1">
+    <xs:annotation>
+        <xs:documentation>
+            <![CDATA[
+                <p>
+                    XML schema definition for XSLT 1.0.
+                </p>
+            ]]>
+        </xs:documentation>
+        <xs:documentation>
+            <![CDATA[
+                <p>
+                    Since there is no official XSD for XSLT 1.0, this was put together using xslt.dtd as a starting
+                    point. It could be much more strict (element nesting order is basically not checked at all, for
+                    instance), and I am not 100% positive it is actually correct, but it works for now.
+                </p>
+            ]]>
+        </xs:documentation>
+    </xs:annotation>
+    <xs:element name="xsl:stylesheet">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="extension-element-prefixes" type="xs:string" use="optional"/>
+            <xs:attribute name="exclude-result-prefixes" type="xs:string" use="optional"/>
+            <xs:attribute name="id" type="xs:ID" use="optional"/>
+            <xs:attribute name="version" type="xs:NMTOKEN" use="required"/>
+            <xs:attribute name="xmlns:xsl" type="xs:string" use="fixed" value="http://www.w3.org/1999/XSL/Transform"/>
+            <xs:attribute name="xml:space" use="optional">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="default"/>
+                        <xs:enumeration value="preserve"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="xsl:transform">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="extension-element-prefixes" type="xs:string" use="optional"/>
+            <xs:attribute name="exclude-result-prefixes" type="xs:string" use="optional"/>
+            <xs:attribute name="id" type="xs:ID" use="optional"/>
+            <xs:attribute name="version" type="xs:NMTOKEN" use="required"/>
+            <xs:attribute name="xmlns:xsl" type="xs:string" use="fixed" value="http://www.w3.org/1999/XSL/Transform"/>
+            <xs:attribute name="xml:space" use="optional">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="default"/>
+                        <xs:enumeration value="preserve"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="xsl:import">
+        <xs:complexType>
+            <xs:attribute name="href" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="xsl:include">
+        <xs:complexType>
+            <xs:attribute name="href" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="xsl:strip-space">
+        <complexType>
+            <attribute name="elements" type="string" use="required"/>
+        </complexType>
+    </xs:element>
+    <xs:element name="xsl:preserve-space">
+        <xs:complexType>
+            <xs:attribute name="elements" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="xsl:output">
+        <xs:complexType>
+            <xs:attribute name="method" type="xs:NMTOKEN" use="optional"/>
+            <xs:attribute name="version" type="xs:NMTOKEN" use="optional"/>
+            <xs:attribute name="encoding" type="xs:string" use="optional"/>
+            <xs:attribute name="omit-xml-declaration" use="optional">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="yes"/>
+                        <xs:enumeration value="no"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="standalone" use="optional">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="yes"/>
+                        <xs:enumeration value="no"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="doctype-public" type="xs:string" use="optional"/>
+            <xs:attribute name="doctype-system" type="xs:string" use="optional"/>
+            <xs:attribute name="cdata-section-elements" type="xs:NMTOKENS" use="optional"/>
+            <xs:attribute name="indent" use="optional">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="yes"/>
+                        <xs:enumeration value="no"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="media-type" type="xs:string" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="xsl:key">
+        <xs:complexType>
+            <xs:attribute name="name" type="xs:NMTOKEN" use="required"/>
+            <xs:attribute name="match" type="xs:string" use="required"/>
+            <xs:attribute name="use" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="xsl:decimal-format">
+        <xs:complexType>
+            <xs:attribute name="name" type="xs:NMTOKEN" use="optional"/>
+            <xs:attribute name="decimal-separator" type="xs:string" use="default" value="."/>
+            <xs:attribute name="grouping-separator" type="xs:string" use="default" value=","/>
+            <xs:attribute name="infinity" type="xs:string" use="default" value="Infinity"/>
+            <xs:attribute name="minus-sign" type="xs:string" use="default" value="-"/>
+            <xs:attribute name="NaN" type="xs:string" use="default" value="NaN"/>
+            <xs:attribute name="percent" type="xs:string" use="default" value="&#x25;"/>
+            <xs:attribute name="per-mille" type="xs:string" use="default" value="&#x2030;"/>
+            <xs:attribute name="zero-digit" type="xs:string" use="default" value="0"/>
+            <xs:attribute name="digit" type="xs:string" use="default" value="#"/>
+            <xs:attribute name="pattern-separator" type="xs:string" use="default" value=";"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="xsl:namespace-alias">
+        <xs:complexType>
+            <xs:attribute name="stylesheet-prefix" type="xs:string" use="required"/>
+            <xs:attribute name="result-prefix" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="xsl:template">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="match" type="xs:string" use="optional"/>
+            <xs:attribute name="name" type="xs:NMTOKEN" use="optional"/>
+            <xs:attribute name="priority" type="xs:NMTOKEN" use="optional"/>
+            <xs:attribute name="mode" type="xs:NMTOKEN" use="optional"/>
+            <xs:attribute name="xml:space" use="optional">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="default"/>
+                        <xs:enumeration value="preserve"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="xsl:value-of">
+        <xs:complexType>
+            <xs:attribute name="select" type="xs:string" use="required"/>
+            <xs:attribute name="disable-output-escaping" use="default" value="no">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="yes"/>
+                        <xs:enumeration value="no"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="xsl:copy-of">
+        <xs:complexType>
+            <xs:attribute name="select" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="xsl:number">
+        <xs:complexType>
+            <xs:attribute name="level" use="default" value="single">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="single"/>
+                        <xs:enumeration value="multiple"/>
+                        <xs:enumeration value="any"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="count" type="xs:string" use="optional"/>
+            <xs:attribute name="from" type="xs:string" use="optional"/>
+            <xs:attribute name="value" type="xs:string" use="optional"/>
+            <xs:attribute name="format" type="xs:string" use="default" value="1"/>
+            <xs:attribute name="lang" type="xs:string" use="optional"/>
+            <xs:attribute name="letter-value" type="xs:string" use="optional"/>
+            <xs:attribute name="grouping-separator" type="xs:string" use="optional"/>
+            <xs:attribute name="grouping-size" type="xs:string" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="xsl:apply-templates">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="select" type="xs:string" use="default" value="node (  ) "/>
+            <xs:attribute name="mode" type="xs:NMTOKEN" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="xsl:apply-imports">
+        <xs:complexType/>
+    </xs:element>
+    <xs:element name="xsl:for-each">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="select" type="xs:string" use="required"/>
+            <xs:attribute name="xml:space" use="optional">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="default"/>
+                        <xs:enumeration value="preserve"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="xsl:sort">
+        <xs:complexType>
+            <xs:attribute name="select" type="xs:string" use="default" value="."/>
+            <xs:attribute name="lang" type="xs:string" use="optional"/>
+            <xs:attribute name="data-type" type="xs:string" use="default" value="text"/>
+            <xs:attribute name="order" type="xs:string" use="default" value="ascending"/>
+            <xs:attribute name="case-order" type="xs:string" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="xsl:if">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="test" type="xs:string" use="required"/>
+            <xs:attribute name="xml:space" use="optional">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="default"/>
+                        <xs:enumeration value="preserve"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="xsl:choose">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="xml:space" use="optional">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="default"/>
+                        <xs:enumeration value="preserve"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="xsl:when">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="test" type="xs:string" use="required"/>
+            <xs:attribute name="xml:space" use="optional">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="default"/>
+                        <xs:enumeration value="preserve"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="xsl:otherwise">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="xml:space" use="optional">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="default"/>
+                        <xs:enumeration value="preserve"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="xsl:attribute-set">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:NMTOKEN" use="required"/>
+            <xs:attribute name="use-attribute-sets" type="xs:NMTOKENS" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="xsl:call-template">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:NMTOKEN" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="xsl:with-param">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:NMTOKEN" use="required"/>
+            <xs:attribute name="select" type="xs:string" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="xsl:variable">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:NMTOKEN" use="required"/>
+            <xs:attribute name="select" type="xs:string" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="xsl:param">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:NMTOKEN" use="required"/>
+            <xs:attribute name="select" type="xs:string" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="xsl:text">
+        <xs:complexType mixed="true">
+            <xs:attribute name="disable-output-escaping" use="default" value="no">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="yes"/>
+                        <xs:enumeration value="no"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="xsl:processing-instruction">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string" use="required"/>
+            <xs:attribute name="xml:space" use="optional">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="default"/>
+                        <xs:enumeration value="preserve"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="xsl:element">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string" use="required"/>
+            <xs:attribute name="namespace" type="xs:string" use="optional"/>
+            <xs:attribute name="use-attribute-sets" type="xs:NMTOKENS" use="optional"/>
+            <xs:attribute name="xml:space" use="optional">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="default"/>
+                        <xs:enumeration value="preserve"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="xsl:attribute">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string" use="required"/>
+            <xs:attribute name="namespace" type="xs:string" use="optional"/>
+            <xs:attribute name="xml:space" use="optional">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="default"/>
+                        <xs:enumeration value="preserve"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="xsl:comment">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="xml:space" use="optional">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="default"/>
+                        <xs:enumeration value="preserve"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="xsl:copy">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="xml:space" use="optional">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="default"/>
+                        <xs:enumeration value="preserve"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="use-attribute-sets" type="xs:NMTOKENS" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="xsl:message">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="xml:space" use="optional">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="default"/>
+                        <xs:enumeration value="preserve"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="terminate" use="default" value="no">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="yes"/>
+                        <xs:enumeration value="no"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="xsl:fallback">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="xml:space" use="optional">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="default"/>
+                        <xs:enumeration value="preserve"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
