@@ -11,7 +11,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "squarespace runserver https://www.lvier.de -T -d ./dist",
     "start": "npm run setup && (npm run watch & npm run server)",
-    "deploy": "npm run setup && squarespace deploy -d dist"
+    "deploy": "npm run setup && squarespace deploy -d dist --force"
   },
   "repository": {
     "type": "git",
