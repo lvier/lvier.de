@@ -27,8 +27,8 @@ jobs:
             login ${SQUARESPACE_DEPLOYMENT_USER}
             password ${SQUARESPACE_DEPLOYMENT_PASSWORD}
           EOF
-          git config --global user.email ${SQUARESPACE_DEPLOYMENT_EMAIL}
-          git config --global user.name ${SQUARESPACE_DEPLOYMENT_NAME}
+          git config --global user.email "${SQUARESPACE_DEPLOYMENT_EMAIL}"
+          git config --global user.name "${SQUARESPACE_DEPLOYMENT_NAME}"
           npm run deploy
         env:
           SQUARESPACE_DEPLOYMENT_USER: ${{ secrets.SQUARESPACE_DEPLOYMENT_USER }}
