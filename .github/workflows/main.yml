@@ -1,17 +1,37 @@
 name: CD
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   build:
 
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node-version: [8.x, 10.x, 12.x]
+
     steps:
-    - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install npm packages
+        run: yes yes | npm install
+      - name: Build
+        run: npm run build
+      - name: Deploy
+        run: |
+          tee ~/.netrc > /dev/null << EOF
+            machine jeanpierre-hohmann.squarespace.com
+            login ${SQUARESPACE_DEPLOYMENT_USER}
+            password ${SQUARESPACE_DEPLOYMENT_PASSWORD}
+          EOF
+          npm run deploy
+        env:
+          SQUARESPACE_DEPLOYMENT_USER: ${{ secrets.SQUARESPACE_DEPLOYMENT_USER }}
+          SQUARESPACE_DEPLOYMENT_PASSWORD: ${{ secrets.SQUARESPACE_DEPLOYMENT_PASSWORD }}
