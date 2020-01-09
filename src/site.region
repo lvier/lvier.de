@@ -413,7 +413,7 @@
         <a href='{collection.fullUrl}'><span>{author.displayName}</span></a>
     </p>
     {.end}
-    <main id='page' role='main'>
+    <main id='page' role='main' data-content-field='main-content'>
         {.equal? collection.typeName "gallery"}{.var @isGallery collection.typeName}{.end}
         {.equal? collection.typeName "index"}{.var @isIndex collection.typeName}{.end}
         {.equal? collection.typeName "products"}{.var @isProducts collection.typeName}{.end}
