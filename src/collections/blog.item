@@ -33,7 +33,7 @@
                     -->{.end}<!--
                     --><div class="entry-dateline"><!--
                         --><time class="dt-published published entry-date" datetime="{addedOn|date %F}" pubdate><!--
-                            --><a href="{fullUrl}" class="entry-dateline-link">{addedOn|date %B %e, %Y}</a><!--
+                            --><a href="{fullUrl}" class="entry-dateline-link">{addedOn|date %d.%m.%Y}</a><!--
                         --></time><!--
                         -->{.if updatedOn}<!--
                         --><time class="dt-updated updated" datetime="{updatedOn|date %F}"></time><!--
@@ -78,7 +78,7 @@
                     -->{.end}<!--
                     --><div class="entry-dateline"><!--
                         --><time class="dt-published published entry-date" datetime="{addedOn|date %F}" pubdate><!--
-                            --><a href="{fullUrl}" class="entry-dateline-link">{addedOn|date %B %e, %Y}</a><!--
+                            --><a href="{fullUrl}" class="entry-dateline-link">{addedOn|date %d.%m.%Y}</a><!--
                         --></time><!--
                         -->{.if updatedOn}<!--
                         --><time class="dt-updated updated" datetime="{updatedOn|date %F}"></time><!--
@@ -106,12 +106,12 @@
             <footer class="entry-footer clear">
                 {.section sourceUrl}
                 <p class="entry-source">
-                    Source: <a href="{sourceUrl}" target="_blank">{sourceUrl}</a>
+                    Quelle: <a href="{sourceUrl}" target="_blank">{sourceUrl}</a>
                 </p>
                 {.end}
                 {.section tags}
                 <p class="entry-tags">
-                    Tagged:
+                    Tags:
                     {.repeated section @}
                     <a href="{collection.fullUrl}?tag={@|url-encode}" rel="tag">{@}</a><!--
                     -->{.alternates with}<!--
@@ -133,7 +133,7 @@
         <div class="newer">
             {.if pagination.prevItem}
             <span><!--
-                --><span class="prev-label">Newer Post</span><!--
+                --><span class="prev-label">Neuerer Post</span><!--
                 --><a href="{pagination.prevItem.fullUrl}" rel="prev">{pagination.prevItem.title}</a><!--
             --></span>
             {.end}
@@ -141,7 +141,7 @@
         --><div class="older">
             {.if pagination.nextItem}
             <span><!--
-                --><span class="next-label">Older Post</span><!--
+                --><span class="next-label">Älterer Post</span><!--
                 --><a href="{pagination.nextItem.fullUrl}" rel="next">{pagination.nextItem.title}</a><!--
             --></span>
             {.end}

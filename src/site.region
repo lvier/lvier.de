@@ -155,7 +155,7 @@
                                         class='dt-published published post-date'
                                         datetime='{addedOn|date %F}'
                                         pubdate><!--
-                                    -->{addedOn|date %B %e, %Y}<!--
+                                    -->{addedOn|date %d.%m.%Y}<!--
                                 --></time>
                                 <div class='post-category'>
                                     {.section categories}
@@ -265,7 +265,7 @@
                                                         class='dt-published published post-date'
                                                         datetime='{addedOn|date %F}'
                                                         pubdate><!--
-                                                    -->{addedOn|date %B %e, %Y}<!--
+                                                    -->{addedOn|date %d.%m.%Y}<!--
                                                 --></time>
                                                 <div class='post-category'>
                                                     {.repeated section categories}{@}{.alternates with}, {.end}
@@ -429,7 +429,7 @@
                         <li class='nav-section-label'>{navigationTitle}</li>
                         <li class='filter'><a>Filter{.if categoryFilter}: {categoryFilter}{.end}</a></li>
                         <li class='{.if categoryFilter}{.or}active-link all{.end}'>
-                            <a href='{fullUrl}'>All</a>
+                            <a href='{fullUrl}'>Alles</a>
                         </li>
                         {.repeated section @}
                         <li class='{.equal? categoryFilter @}active-link{.end}'>
@@ -475,7 +475,7 @@
             <div class='nav-wrapper back-to-top-nav'>
                 <nav>
                     <div class='back-to-top'>
-                        <a href='#header'>Back to Top</a>
+                        <a href='#header'>Zum Seitenanfang</a>
                     </div>
                 </nav>
             </div>

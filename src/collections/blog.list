@@ -24,7 +24,7 @@
                 -->{.end}<!--
                 --><div class="entry-dateline"><!--
                     --><time class="dt-published published entry-date" datetime="{addedOn|date %F}" pubdate><!--
-                        --><a href="{fullUrl}" class="entry-dateline-link">{addedOn|date %B %e, %Y}</a><!--
+                        --><a href="{fullUrl}" class="entry-dateline-link">{addedOn|date %d.%m.%Y}</a><!--
                     --></time><!--
                     -->{.if updatedOn}<!--
                     --><time class="dt-updated updated" datetime="{updatedOn|date %F}"></time><!--
@@ -68,7 +68,7 @@
                 -->{.end}<!--
                 --><div class="entry-dateline"><!--
                     --><time class="dt-published published entry-date" datetime="{addedOn|date %F}" pubdate><!--
-                        --><a href="{fullUrl}" class="entry-dateline-link">{addedOn|date %B %e, %Y}</a><!--
+                        --><a href="{fullUrl}" class="entry-dateline-link">{addedOn|date %d.%m.%Y}</a><!--
                     --></time><!--
                     -->{.if updatedOn}<!--
                     --><time class="dt-updated updated" datetime="{updatedOn|date %F}"></time><!--
@@ -115,12 +115,12 @@
         <footer class="entry-footer clear">
             {.section sourceUrl}
             <p class="entry-source">
-                Source: <a href="{sourceUrl}" target="_blank">{sourceUrl}</a>
+                Quelle: <a href="{sourceUrl}" target="_blank">{sourceUrl}</a>
             </p>
             {.end}
             {.section tags}
             <p class="entry-tags">
-                Tagged:
+                Tags:
                 {.repeated section @}<!--
                 --><a href="{collection.fullUrl}?tag={@|url-encode}" rel="tag">{@}</a><!--
                 -->{.alternates with}<!--
@@ -135,7 +135,7 @@
                     --><span>{@|comment-link}</span><!--
                     -->{.or}<!--
                     --><a href="{fullUrl}#comments-{id}" class="entry-comments"><!--
-                        -->{.section publicCommentCount}{@} Comment{@|pluralize}{.or}Comment{.end}<!--
+                        -->{.section publicCommentCount}{@} Kommentare{.or}Kommentieren{.end}<!--
                     --></a><!--
                     -->{.end}<!--
                 --></span><!--
@@ -152,12 +152,12 @@
     <nav class="pagination clear" data-paginate="scroll">
         <div class="newer">
             {.if pagination.prevPage}
-            <a href="{pagination.prevPageUrl}" rel="prev"><span class="prev-label">Newer Posts</span></a>
+            <a href="{pagination.prevPageUrl}" rel="prev"><span class="prev-label">Neuere Posts</span></a>
             {.end}
         </div><!--
         --><div class="older">
             {.if pagination.nextPage}
-            <a href="{pagination.nextPageUrl}" rel="next"><span class="next-label">Older Posts</span></a>
+            <a href="{pagination.nextPageUrl}" rel="next"><span class="next-label">Ältere Posts</span></a>
             {.end}
         </div>
     </nav>
