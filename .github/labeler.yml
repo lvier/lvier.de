@@ -1,0 +1,5 @@
+# This file configures automatic labeling of PRs.
+#
+
+# Mark any markdown changes as documentation.
+documentation: *.md
