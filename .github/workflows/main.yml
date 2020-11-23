@@ -22,6 +22,11 @@ jobs:
         run: npm run build
       - name: Deploy
         run: |
+          [[ -n ${SQUARESPACE_DEPLOYMENT_USER} ]] \
+            && [[ -n ${SQUARESPACE_DEPLOYMENT_PASSWORD} ]] \
+            && [[ -n ${SQUARESPACE_DEPLOYMENT_EMAIL} ]] \
+            && [[ -n ${SQUARESPACE_DEPLOYMENT_NAME} ]] \
+            || exit
           tee ~/.netrc > /dev/null << EOF
             machine jeanpierre-hohmann.squarespace.com
             login ${SQUARESPACE_DEPLOYMENT_USER}
