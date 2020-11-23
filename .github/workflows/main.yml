@@ -26,7 +26,7 @@ jobs:
             && [[ -n ${SQUARESPACE_DEPLOYMENT_PASSWORD} ]] \
             && [[ -n ${SQUARESPACE_DEPLOYMENT_EMAIL} ]] \
             && [[ -n ${SQUARESPACE_DEPLOYMENT_NAME} ]] \
-            || exit
+            || exit 0
           tee ~/.netrc > /dev/null << EOF
             machine jeanpierre-hohmann.squarespace.com
             login ${SQUARESPACE_DEPLOYMENT_USER}
