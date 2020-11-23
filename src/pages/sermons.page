@@ -5,7 +5,7 @@
 -->
 
 {.section collection}
-<div>
+<div class="html-block">
     {.if title}
     <h1>{title}</h1>
     {.end}
