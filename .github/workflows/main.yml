@@ -1,3 +1,10 @@
+#
+# Continuous Deployment
+#
+# This workflow will automatically deploy any code pushed to the
+# master branch.
+#
+
 name: CD
 
 on:
@@ -7,9 +14,7 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js
