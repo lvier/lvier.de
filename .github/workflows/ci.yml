@@ -1,0 +1,24 @@
+#
+# Continuous Integration
+#
+# This workflow will automatically build any pull request, to add a
+# minimal level of assurance.
+#
+
+name: CI
+
+on: [pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install npm packages
+        run: yes yes | npm install
+      - name: Build
+        run: npm run build
