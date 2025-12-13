@@ -495,12 +495,12 @@
     </footer>
 </div>
 
-</body>
-
-<script src='scripts/site-bundle.min.js'></script>
+<script src='scripts/site-bundle.js'></script>
 {.equal? collection.typeName "sermons"}
 <script src='scripts/sermons.js'></script>
 {.end}
 {squarespace-footers}
+
+</body>
 
 </html>
