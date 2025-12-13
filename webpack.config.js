@@ -9,7 +9,6 @@ const path = require('path');
 
 module.exports = {
     entry: {
-        main: './src/scripts/site-bundle.min.js',
         sermons: './src/scripts/sermons.js'
     },
     output: {
