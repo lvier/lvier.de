@@ -2,16 +2,9 @@
   "name": "lvier.de",
   "version": "1.0.0",
   "description": "Squarespace template for lvier.de",
-  "main": "index.js",
   "scripts": {
-    "setup": "squarespace setup",
-    "clean": "squarespace clean -d dist",
-    "build": "squarespace assemble -d src -o dist && webpack",
-    "watch": "squarespace assemble -wT -d src -o dist & webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "squarespace runserver https://www.lvier.de -T -d ./dist",
-    "start": "npm run setup && (npm run watch & npm run server)",
-    "deploy": "npm run setup && squarespace deploy -d dist --force"
+    "start": "squarespace-server https://www.lvier.de -d ./src"
   },
   "repository": {
     "type": "git",
