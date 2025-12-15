@@ -14,13 +14,8 @@
   "author": "Jean-Pierre Höhmann <jp@hhmn.de>",
   "license": "UNLICENSED",
   "private": true,
-  "dependencies": {
-    "lodash": "^4.17.21"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@squarespace/server": "^1.6.0",
-    "@squarespace/toolbelt": "^0.10.6",
-    "webpack": "^4.41.3",
-    "webpack-cli": "^3.3.12"
+    "@squarespace/server": "^1.6.0"
   }
 }
